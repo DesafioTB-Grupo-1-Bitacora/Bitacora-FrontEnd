@@ -43,7 +43,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: 'us-west-2'
           AWS_BUCKET_NAME: ${{ env.BUCKET_NAME }}
-          DIST_LOCATION_CODE: ./build
+          DIST_LOCATION_CODE: ./dist
 
       - name: Tag version
         uses: tvdias/github-tagger@v0.0.1
