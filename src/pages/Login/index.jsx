@@ -1,7 +1,11 @@
 import { useLocation } from "wouter";
 import Form from "../../components/Form";
 import { useLogin, useAuth } from "../../hooks";
+import styled from 'styled-components';
 
+const TitleView = styled.h1`
+ font-size: 40px;
+`;
 const Login = () => {
     const { data } = useLogin();
     const { login } = useAuth();
@@ -19,7 +23,7 @@ const Login = () => {
 
     return (
         <>
-            <h1>Login</h1>
+            <TitleView>Login</TitleView>
             <Form onSubmit={login} fields={loginFields} button="Sign in" />
         </>
     )
