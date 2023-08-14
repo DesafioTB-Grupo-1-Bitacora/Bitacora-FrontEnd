@@ -45,8 +45,10 @@ const RightNav = ({ open }) => {
   return (
     <Ul open={open}>
       <li><a href="/profile">Perfil</a></li>
-      <li><a href="Map">Añadir Ficha</a></li>
-      <li><a href="Travels">Mis viajes</a></li>
+      <li><a href="/newsheet">Añadir Ficha</a></li>
+      <li><a href="/travels">Mis viajes</a></li>
+      
+      <li><a href="/map">Mapa</a></li>
       <li><a href="Login">Login</a></li>
       <li><a href="Register">Registro</a></li>
     </Ul>
