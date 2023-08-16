@@ -16,6 +16,7 @@ import Navbar from "./components/Nav/Navbar";
 import Provider from "./context/Provider";
 import { Reset } from 'styled-reset'
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider>

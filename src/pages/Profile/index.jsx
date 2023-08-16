@@ -28,9 +28,7 @@ const Profile = () => {
             <p>email</p>
             <p>contraseña</p>
             <p>fecha de creación</p>
-            <p>Mis pedidos</p>
-            <p>Mis fichas compartidas</p>
-            <p>Mis fichas favoritas</p>
+            
         </Wrapper>
 
         </>

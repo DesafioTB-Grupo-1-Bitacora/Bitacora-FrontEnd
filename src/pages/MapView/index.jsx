@@ -1,12 +1,15 @@
 import MapComponent from "../../components/MapComponent";
-import Button from "../../components/Button";
+
+import Styled from './styles'
+
 
 const MapView = () => {
     return (
         <>
     
 <MapComponent/>
-<Button type="button"/>
+
+
         
         </>
     )
