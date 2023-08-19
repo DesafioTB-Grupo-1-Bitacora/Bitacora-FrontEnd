@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'wouter'
-import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet'
-
+import { MapContainer, TileLayer, useMapEvents, Marker } from 'react-leaflet'
+import {useState} from 'react'
 import styled from 'styled-components'
 
 import 'leaflet/dist/leaflet.css'
@@ -9,7 +9,10 @@ const Map = styled(MapContainer)`
 	height: 60%;
 	border: 3px solid ${({ color }) => color};
 `
+const StyledLink = styled(Link)`
+pointer-events: ${({disabled}) => disabled ? 'none' : 'auto'};
 
+`
 const center = {
 	lat: 51.505,
 	lng: -0.09,
@@ -17,12 +20,13 @@ const center = {
 
 const MapComponent = () => {
 	const [location, navigate] = useLocation()
+	const [position, setPosition] = useState([])
 
 	const LocationFinder = () => {
 		const map = useMapEvents({
 			click(e) {
-				navigate(`/newsheet?lat=${e.latlng.lat}&lng=${e.latlng.lng}`)
-				/*   console.log(e.latlng); */
+			
+				  setPosition([e.latlng.lat, e.latlng.lng])
 			},
 		})
 		return null
@@ -33,9 +37,13 @@ const MapComponent = () => {
 				<TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
 				<LocationFinder />
+				{position.length &&  (<Marker position={position}>
+				
+    			</Marker>)}
 			</Map>
 
-			<Link to="/newsheet">Nueva Ficha</Link>
+			<StyledLink to={`/newsheet?lat=${position[0]}&lng=${position[1]}`} disabled={!position.length} >Nueva Ficha</StyledLink>
+
 		</>
 	)
 }
