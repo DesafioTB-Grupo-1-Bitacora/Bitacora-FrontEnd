@@ -10,18 +10,24 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.2.0",
+    "@tanstack/react-query-devtools": "^4.32.6",
     "axios": "^1.4.0",
     "leaflet": "^1.9.4",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
+    "react-audio-voice-recorder": "^2.1.2",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.45.4",
+    "react-html5-camera-photo": "^1.5.11",
     "react-leaflet": "^4.2.1",
     "react-query": "^3.39.3",
+    "react-webcam": "^7.1.1",
     "styled-components": "^6.0.7",
     "styled-reset": "^4.5.1",
-    "wouter": "^2.11.0"
+    "wouter": "^2.11.0",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

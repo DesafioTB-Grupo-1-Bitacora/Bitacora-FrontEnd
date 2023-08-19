@@ -1,18 +1,48 @@
-import { useForm } from "react-hook-form";
-import Styled from "./styles";
+import { useForm } from 'react-hook-form'
 
-const Form = ({ onSubmit, button, fields = [] }) => {
-    const { register, handleSubmit } = useForm();
+import { resolver, getDefaultValues, getFields } from './helpers'
 
-    return (
-        <Styled.Form onSubmit={handleSubmit(onSubmit)}>
-            {fields.map(field => {
-                return <Styled.Input key={field.name} name={field.name} placeholder={field.placeholder} type={field.type || "text"} {...register(field.name)} />
-            })}
+import Styled from './styles'
+import InputFields from './fields'
 
-            <Styled.Button type="submit">{button}</Styled.Button>
-        </Styled.Form>
-    )
+const Form = ({ title, onSubmit, buttonLabel, formData = [] }) => {
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm({
+		defaultValues: getDefaultValues(formData),
+		resolver: resolver(formData),
+	})
+
+	const fields = getFields(formData)
+
+	return (
+		<Styled.Form onSubmit={handleSubmit(onSubmit)} noValidate>
+			<Styled.FormTitle>{title}</Styled.FormTitle>
+
+			{fields.map(({ name, type = 'text', ...propsRest }) => {
+				const { ref: inputRef, ...rest } = {
+					type,
+					...register(name),
+					...propsRest,
+				}
+
+				const Input = InputFields[type] || InputFields.input
+
+				return (
+					<Input
+						key={name}
+						{...rest}
+						errors={errors[name]}
+						inputRef={inputRef}
+					/>
+				)
+			})}
+
+			<Styled.FormButton type="submit">{buttonLabel}</Styled.FormButton>
+		</Styled.Form>
+	)
 }
 
-export default Form;
+export default Form

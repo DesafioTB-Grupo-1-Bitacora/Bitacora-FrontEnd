@@ -1,44 +1,20 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { Route, Switch, Redirect } from "wouter";
-import Styled from "./styles";
+import { ThemeProvider } from 'styled-components'
 
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import MapView from "./pages/MapView";
-import Home from "./pages/Home";
-import NewSheet from "./pages/NewSheet";
-import Profile from "./pages/Profile";
-import Travels from "./pages/Travels";
+import APIClientProvider from './context/APIClientProvider'
 
-import Navbar from "./components/Nav/Navbar";
+import App from './App'
+import { ReactQueryDevtools } from 'react-query/devtools'
 
-import Provider from "./context/Provider";
-import { Reset } from 'styled-reset'
-
+import GlobalStyle from './styles/global'
+import theme from './styles/theme'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Provider>
-    <Reset />
-    <Navbar/>
-      <Styled.Wrapper>
-      
-        <Switch>
-          
-          <Route path="/login" component={Login}/>
-          <Route path="/register" component={Register}/>
-          <Route path="/profile" component={Profile}/>
-          <Route path="/newsheet" component={NewSheet}/>
-          <Route path="/travels" component={Travels}/>
-          <Route path="/map" component={MapView}/>
-          
-          <Route path="/" component={Home}/>
-
-          <Redirect to="/login" />
-        </Switch>
-      </Styled.Wrapper>
-
-    </Provider>
-  </React.StrictMode>
+	<APIClientProvider>
+		<GlobalStyle />
+		<ThemeProvider theme={theme}>
+			<App />
+		</ThemeProvider>
+		<ReactQueryDevtools initialIsOpen={false} />
+	</APIClientProvider>
 )
