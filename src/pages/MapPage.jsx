@@ -8,6 +8,7 @@ import 'leaflet/dist/leaflet.css'
 const Map = styled(MapContainer)`
 	height: 60%;
 	border: 3px solid ${({ color }) => color};
+	border-radius: 10px;
 `
 const StyledLink = styled(Link)`
 pointer-events: ${({disabled}) => disabled ? 'none' : 'auto'};
@@ -33,12 +34,11 @@ const MapComponent = () => {
 	}
 	return (
 		<>
-			<Map color="red" center={center} zoom={4} scrollWheelZoom={true}>
+			<Map color="grey" center={center} zoom={4} scrollWheelZoom={true}>
 				<TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
 				<LocationFinder />
 				{position.length &&  (<Marker position={position}>
-				
     			</Marker>)}
 			</Map>
 
