@@ -5,7 +5,7 @@ import Login from './pages/LoginPage'
 import Register from './pages/RegisterPage'
 import Map from './pages/MapPage'
 
-import NewSheet from './pages/NewSheetPage'
+import NewMemory from './pages/NewMemoryPage'
 import Profile from './pages/ProfilePage'
 import Travels from './pages/TravelsPage'
 
@@ -26,7 +26,7 @@ function App() {
 				<Route path="/login" component={Login} />
 				<Route path="/register" component={Register} />
 				<Route path="/profile" component={Profile} />
-				<Route path="/newsheet" component={NewSheet} />
+				<Route path="/newmemory" component={NewMemory}/>
 				<Route path="/travels" component={Travels} />
 				<Route path="/map" component={Map} />
 				

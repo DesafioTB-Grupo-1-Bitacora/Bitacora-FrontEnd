@@ -5,13 +5,9 @@ const Navbar = styled.header`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 16px 26px;
+	padding: 0 10px;
 	background-color: ${({ theme }) => theme.colors.white};
 	color: ${({ theme }) => theme.colors.black};
-	align-content: center;
-	row-gap: 49px;
-	flex-shrink: 0;
-	flex-wrap: wrap;
 `
 
 const BurgerFloor = styled.div`
@@ -63,8 +59,7 @@ const MenuItem = styled(Link)`
 const Menu = styled.ul`
 	display: flex;
 	gap: 10px;
-	width: 100%;
-	height: auto;
+
 	text-align: center;
 
 	@media ${({ theme }) => theme.device.mobile} {
@@ -88,12 +83,10 @@ const Menu = styled.ul`
 	}
 `
 
-
 export default {
 	Navbar,
 	Burger,
 	BurgerFloor,
 	Menu,
 	MenuItem,
-
 }

@@ -10,8 +10,8 @@ const Navbar = ({ className }) => {
 
 	return (
 		<Styled.Navbar className={className}>
+			<h1>TRIPMEMORIES</h1>
 			<nav>
-			<h1>LOGO</h1>
 				<Burger isOpen={open} onToggle={() => setOpen(!open)} />
 				<Menu isOpen={open} onClose={() => setOpen(false)} />
 			</nav>

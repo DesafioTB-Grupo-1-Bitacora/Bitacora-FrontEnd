@@ -24,7 +24,7 @@ const Navbar = styled(DefaultNavbar)`
 `
 
 const PageContainer = styled.div`
-	background-color: pink;
+
 	grid-area: content;
 `
 
