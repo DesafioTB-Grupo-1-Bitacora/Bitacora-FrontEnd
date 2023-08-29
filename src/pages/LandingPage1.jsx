@@ -4,8 +4,6 @@ import MapComponent from './MapPage'
 
 
 
-
-
 const RectangleImage = styled.div`
 
 align-self: stretch;
@@ -42,6 +40,7 @@ justify-content: center;
 align-items: flex-start;
 gap: 36px;
 align-self: stretch;
+
 
 `
 const Funcionality = styled(Link)`
@@ -120,6 +119,35 @@ cursor: pointer;
 width: 100%;
 `
 
+const SuscriptionBox = styled.div`
+width: 1005px;
+height: 600px;
+padding-top: 76px;
+display: flex;
+
+
+`
+const Box = styled.div`
+flex: 1;
+height: 105px;
+display: flex;
+flex-direction: column;
+
+
+	p {
+	
+		padding: 26px;
+	}
+
+`
+
+const HeadBox = styled.div`
+font-size: 32px;
+
+
+
+
+`
 
 
 const LandingPage1 = () => {
@@ -129,6 +157,7 @@ const LandingPage1 = () => {
 
 
    <StyledWrapper>
+
 			<FuncionalitiesIcons>
 				<IconsAndDEscription>
 
@@ -144,7 +173,7 @@ const LandingPage1 = () => {
 </svg>
 					</Funcionality>
 
-					<Funcionality to={`/landingpage2`}>
+					<Funcionality to={`/landingpage1`}>
 		
 <svg xmlns="http://www.w3.org/2000/svg" width="27" height="28" viewBox="0 0 27 28" fill="none">
   <path d="M13.1668 25H4.50016C3.79292 25 3.11464 24.719 2.61454 24.219C2.11445 23.7189 1.8335 23.0406 1.8335 22.3333V6.33333C1.8335 5.62609 2.11445 4.94781 2.61454 4.44772C3.11464 3.94762 3.79292 3.66667 4.50016 3.66667H20.5002C21.2074 3.66667 21.8857 3.94762 22.3858 4.44772C22.8859 4.94781 23.1668 5.62609 23.1668 6.33333V11.6667M17.8335 1V6.33333" stroke="#0C0C0F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -153,7 +182,7 @@ const LandingPage1 = () => {
 <TextFuncionality>Organiza los memories</TextFuncionality>
 					</Funcionality>
 
-					<Funcionality to={`/landingpage3`}>
+					<Funcionality to={`/landingpage1`}>
 			
 <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
   <path d="M16.167 25.3334C14.3428 24.2801 12.2734 23.7257 10.167 23.7257C8.06055 23.7257 5.99122 24.2801 4.16699 25.3334V8.00003C5.99122 6.94681 8.06055 6.39233 10.167 6.39233C12.2734 6.39233 14.3428 6.94681 16.167 8.00003V25.3334ZM16.167 25.3334C17.9912 24.2801 20.0606 23.7257 22.167 23.7257C24.2734 23.7257 26.3428 24.2801 28.167 25.3334V12" stroke="#0C0C0F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -201,7 +230,40 @@ const LandingPage1 = () => {
 						</Link>
 					</ComenzarRegistro>
 
+					<SuscriptionBox>
+							<Box>
+							<HeadBox>
+							Gratis
+							</HeadBox>
+							<div>
+							<p>5 memories máximo</p>
+							</div>
+							<div> <p>1 cuaderno</p></div>
+							 <p>500GB almacenamiento</p>
+							<RegButton >OK</RegButton>
+							</Box>
+							
+							<Box>
+							<HeadBox>
+							Pro
+							</HeadBox>
+							<p>5 memories/cuaderno</p> <p>5 cuadernos</p> <p>1 TB almacenamiento</p> <p>1 impresión de cuaderno gratis</p>
+							<RegButton >OK</RegButton>
 
+
+							</Box>
+
+
+							<Box>
+							<HeadBox>
+							Premium
+							</HeadBox>
+							
+							<p>Memories ilimitados</p> <p>cuadernos ilimitados</p> <p>ilimitado almacenamiento</p> <p>1 impresión de cuaderno gratis</p> <p>5% descuento siguientes impresiones de cuadernos</p>
+							<RegButton >OK</RegButton>
+
+							</Box>
+						</SuscriptionBox>
 					<ComenzarRegistro>
 						<TitleRegistro> ¿Aún no te decides? </TitleRegistro>
 						<Link to={'/'}>
@@ -209,6 +271,8 @@ const LandingPage1 = () => {
 						</Link>
 					</ComenzarRegistro>
 								</StyledWrapper>
+
+			
 
 			</>
 	)

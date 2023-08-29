@@ -3,12 +3,28 @@ import styled from 'styled-components'
 
 const Navbar = styled.header`
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 	padding: 0 10px;
 	background-color: ${({ theme }) => theme.colors.white};
 	color: ${({ theme }) => theme.colors.black};
+	
 `
+const LogLink = styled(Link)`
+text-decoration: none;
+color: inherit;
+margin-right: 16px;
+`
+const RegLink = styled(Link)`
+text-decoration: none;
+color: white;
+background-color: ${({ theme }) => theme.colors.black};
+border-radius: 20px;
+padding: 8px 16px;
+margin-right: 26px;
+
+`
+
 
 const BurgerFloor = styled.div`
 	width: 2rem;
@@ -69,16 +85,18 @@ const Menu = styled.ul`
 		position: fixed;
 		top: 55px;
 		right: 0;
-		width: 100vw;
+		width: 100%;
 		padding: 3.5rem 0;
 
 		flex-direction: column;
 		gap: 1rem;
-		background-color: #ffffff;
+		background-color: #fff;
+	
 
 		${MenuItem} {
 			display: block;
 			font-size: 26px;
+			z-index: 1000;
 		}
 	}
 `
@@ -89,4 +107,6 @@ export default {
 	BurgerFloor,
 	Menu,
 	MenuItem,
+	LogLink,
+	RegLink,
 }

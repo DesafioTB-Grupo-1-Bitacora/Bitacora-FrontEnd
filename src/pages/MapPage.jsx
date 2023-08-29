@@ -2,11 +2,8 @@ import { Link, useLocation } from 'wouter'
 import { MapContainer, TileLayer, useMapEvents, Marker, ZoomControl } from 'react-leaflet'
 import {useState} from 'react'
 import styled from 'styled-components'
-import addMemoryImage from '../assets/addMemory.png';
-
-
-
 import 'leaflet/dist/leaflet.css'
+
 
 const Map = styled(MapContainer)`
 	height: 262px;
@@ -21,14 +18,21 @@ const CreateMemory = styled(Link)`
   position: absolute;
   bottom: 10px;
   right: 20px;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  border: 22px solid white;
+  background-color: white;
   z-index: 1000;
-
-  background-size: cover;
+  background-img: url('assets/addMemory.png');
+  background-size: auto;
   cursor: pointer; 
+	margin: 5px;
+	box-shadow: 0px 2px 8px 0px rgba(97, 97, 99, 0.50) inset;
+	padding: 5px 5px;
+justify-content: center;
+align-items: center;
+
+  
 
   &:hover .tooltip {
     display: block;
@@ -62,10 +66,11 @@ const BoxNotebookAndMemories = styled.div`
   justify-content: space-between;
   align-items: center; 
   width: 100%;
-  padding: 8px 24px;
+  padding: 32px 24px;
+
 
   @media (min-width: 768px) {
-    padding: 4px 315px;
+    padding: 32px 315px;
   }
 `
 
@@ -78,6 +83,7 @@ const Memories = styled(Link)`
 text-decoration: none;
 color: inherit;
 `
+
 
 const center = {
 	lat: 51.505,
@@ -103,6 +109,7 @@ const MapComponent = () => {
 	return (
 		<>
 			<BoxCreateMemory>
+
 			<Map color="grey" center={center} zoom={4} scrollWheelZoom={true} zoomControl={false}>
 				<TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 				<ZoomControl position="topright" />
@@ -113,16 +120,16 @@ const MapComponent = () => {
 			
 			</Map>
 			<CreateMemory to={`/map`}>
-				A
+				
+			<img src="src/assets/addMemory.png"/> 
 				<Tooltip className="tooltip">
 				Haz clic aquí para crear tu primer memory
        			 </Tooltip>
 	
 		</CreateMemory>
 		</BoxCreateMemory>
-{/* 
-		Aquí va un styled wraper para el contenido que está por debajo del mapa */}
 
+		
 		<BoxNotebookAndMemories>
 			<Notebooks to={`/`}>
 				Cuadernos
@@ -131,6 +138,7 @@ const MapComponent = () => {
 			Todos los memories
 			</Memories>
 		</BoxNotebookAndMemories>
+
 		
 	
 			

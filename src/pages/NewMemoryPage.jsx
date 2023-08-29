@@ -1,13 +1,18 @@
 import { useForm } from 'react-hook-form'
 import { useLocation } from 'wouter'
-
+import MapComponent from './MapPage'
 import styled from 'styled-components'
 
 const Wrapper = styled.form`
 	display: flex;
 	flex-direction: column;
 	align-items: space-between;
-	padding: 50px 40px;
+	padding: 32px 24px;
+
+
+	@media (min-width: 768px) {
+	  padding: 32px 315px;
+	}
 	div {
 		padding: 26px;
 	}
@@ -27,6 +32,7 @@ const NewMemory = () => {
 
 	return (
 		<>
+		<MapComponent/>
 			<Wrapper onSubmit={handleSubmit(onSubmit)}>
 
 				<div>IMAGEN SIN CARGAR</div>

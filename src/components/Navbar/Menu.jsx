@@ -12,11 +12,15 @@ const Menu = ({ isOpen, onClose }) => {
 	return (
 		<Styled.Menu open={isOpen}>
 			<MenuItem onClick={onClose} label="Perfil" to="/profile" />
-			<MenuItem onClick={onClose} label="Añadir Ficha" to="/newmemory" />
-			<MenuItem onClick={onClose} label="Mis viajes" to="/travels" />
-			<MenuItem onClick={onClose} label="Mapa" to="/map" />
-			<MenuItem onClick={onClose} label="Login" to="/Login" />
-			<MenuItem onClick={onClose} label="Registro" to="/Register" />
+			<MenuItem onClick={onClose} label="Añadir Memory" to="/newmemory" />
+			<MenuItem onClick={onClose} label="Mis cuadernos" to="/" />
+			<MenuItem onClick={onClose} label="Recordatorios" to="/" />
+			<MenuItem onClick={onClose} label="Mi suscripción" to="/" />
+	{/* 		<MenuItem onClick={onClose} label="Mis viajes" to="/travels" />
+			<MenuItem onClick={onClose} label="Mapa" to="/map" /> */}
+
+
+
 		</Styled.Menu>
 	)
 }
