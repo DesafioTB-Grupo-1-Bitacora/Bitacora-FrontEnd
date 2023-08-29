@@ -33,10 +33,12 @@ display: flex;
 flex-direction: column;
 align-items: flex-start;
 gap: 8px;
+
 `
 const IconsAndDEscription = styled.div`
 display: flex;
-justify-content: center;
+justify-content: space-between;
+
 align-items: flex-start;
 gap: 36px;
 align-self: stretch;
@@ -120,7 +122,7 @@ width: 100%;
 `
 
 const SuscriptionBox = styled.div`
-width: 1005px;
+
 height: 600px;
 padding-top: 76px;
 display: flex;
@@ -129,7 +131,7 @@ display: flex;
 `
 const Box = styled.div`
 flex: 1;
-height: 105px;
+height: auto;
 display: flex;
 flex-direction: column;
 
@@ -148,7 +150,30 @@ font-size: 32px;
 
 
 `
+const CreateMemory = styled(Link)`
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  z-index: 10;
+  background-img: url('assets/addMemory.png');
+  background-size: auto;
+  cursor: pointer; 
+	margin: 5px;
+	box-shadow: 0px 2px 8px 0px rgba(97, 97, 99, 0.50) inset;
+	padding: 5px 5px;
+justify-content: center;
+align-items: center;
 
+  
+
+  &:hover .tooltip {
+    display: block;
+  }
+`;
 
 const LandingPage1 = () => {
 	return (
@@ -199,7 +224,12 @@ const LandingPage1 = () => {
 		
 					<ExplanationTitle>Marcar el lugar exacto en el mapa</ExplanationTitle>
 					<ExplanationSubtitle>Añade tus memories para poder verlos más tarde todos agrupados en un cuaderno de viaje totalmente editable</ExplanationSubtitle>
-		
+					
+					
+					<CreateMemory to={`/newmemory`}> 
+					<img src="src/assets/addMemory.png"/> 
+					</CreateMemory>
+
 					<RectangleImage src='src/assets/images/Rectangle1.png' ></RectangleImage>
 
 
@@ -207,7 +237,10 @@ const LandingPage1 = () => {
 					<ExplanationTitle>En tus viajes, no te dejes nada</ExplanationTitle>
 					<ExplanationSubtitle>No te conformes sólo con fotos, crea recuerdos detallados añadiendo audio, música u originales stickers</ExplanationSubtitle>
 					
-
+							
+					<CreateMemory to={`/newmemory`}> 
+					<img src="src/assets/addMemory.png"/> 
+					</CreateMemory>
 					<RectangleImage src='src/assets/images/Rectangle2.png' ></RectangleImage>
 
 
@@ -219,7 +252,10 @@ const LandingPage1 = () => {
 					</ExplanationSubtitle>
 			
 				
-
+							
+					<CreateMemory to={`/newmemory`}> 
+					<img src="src/assets/addMemory.png"/> 
+					</CreateMemory>
 					<RectangleImage src='src/assets/images/Rectangle3.png' ></RectangleImage>
 					<ComenzarRegistro>
 						<TitleRegistro> ¿Comenzamos? </TitleRegistro>

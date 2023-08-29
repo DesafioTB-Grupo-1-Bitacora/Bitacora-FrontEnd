@@ -22,7 +22,7 @@ const CreateMemory = styled(Link)`
   height: 40px;
   border-radius: 50%;
   background-color: white;
-  z-index: 1000;
+  z-index: 10;
   background-img: url('assets/addMemory.png');
   background-size: auto;
   cursor: pointer; 
@@ -66,7 +66,8 @@ const BoxNotebookAndMemories = styled.div`
   justify-content: space-between;
   align-items: center; 
   width: 100%;
-  padding: 32px 24px;
+  padding: 32px 48px;
+  height: 80px;
 
 
   @media (min-width: 768px) {
@@ -112,14 +113,14 @@ const MapComponent = () => {
 
 			<Map color="grey" center={center} zoom={4} scrollWheelZoom={true} zoomControl={false}>
 				<TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-				<ZoomControl position="topright" />
+				<ZoomControl position="topright" style={{ zIndex: 1 }}/>
 
 				<LocationFinder />
 				{position.length &&  (<Marker position={position}>
     			</Marker>)}
 			
 			</Map>
-			<CreateMemory to={`/map`}>
+			<CreateMemory to={`/newmemory`}> 
 				
 			<img src="src/assets/addMemory.png"/> 
 				<Tooltip className="tooltip">

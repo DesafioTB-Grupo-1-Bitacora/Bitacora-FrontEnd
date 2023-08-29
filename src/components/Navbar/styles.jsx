@@ -14,6 +14,12 @@ const LogLink = styled(Link)`
 text-decoration: none;
 color: inherit;
 margin-right: 16px;
+padding: 2px 2px;
+font-size: 13px;
+@media (min-width: 768px) {
+
+	
+}
 `
 const RegLink = styled(Link)`
 text-decoration: none;
@@ -21,7 +27,9 @@ color: white;
 background-color: ${({ theme }) => theme.colors.black};
 border-radius: 20px;
 padding: 8px 16px;
-margin-right: 26px;
+margin-right: 39px;
+padding: 2px 2px;
+font-size: 13px;
 
 `
 
@@ -70,6 +78,7 @@ const MenuItem = styled(Link)`
 	color: inherit;
 	text-decoration: none;
 	padding: 18px 0px;
+	
 `
 
 const Menu = styled.ul`

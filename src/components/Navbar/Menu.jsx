@@ -16,10 +16,6 @@ const Menu = ({ isOpen, onClose }) => {
 			<MenuItem onClick={onClose} label="Mis cuadernos" to="/" />
 			<MenuItem onClick={onClose} label="Recordatorios" to="/" />
 			<MenuItem onClick={onClose} label="Mi suscripción" to="/" />
-	{/* 		<MenuItem onClick={onClose} label="Mis viajes" to="/travels" />
-			<MenuItem onClick={onClose} label="Mapa" to="/map" /> */}
-
-
 
 		</Styled.Menu>
 	)

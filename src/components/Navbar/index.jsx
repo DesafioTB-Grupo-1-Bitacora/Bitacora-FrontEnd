@@ -18,8 +18,10 @@ const Navbar = ({ className }) => {
 				<Menu isOpen={open} onClose={() => setOpen(false)} />
 			</nav>
 			<div>
+
 			<Styled.LogLink to={`/login`}> Iniciar sesión</Styled.LogLink>
 			<Styled.RegLink to={`/register`}> Registrarse</Styled.RegLink>
+			
 			</div>
 		</Styled.Navbar>
 	)
