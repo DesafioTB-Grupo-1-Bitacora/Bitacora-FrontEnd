@@ -16,6 +16,9 @@ const Wrapper = styled.form`
 	@media (min-width: 768px) {
 	  padding: 32px 200px;
 	}
+	input[type="file"] {
+		display: none;
+	}
 	
 `
 const BoxSetBasicData = styled.div`
@@ -174,6 +177,7 @@ height: 24px;
 align-items: center;
 justify-content: center;
 margin-bottom: 8px;
+
 `
 const MusicLogo = styled.div`
 width: 24px;
@@ -240,6 +244,7 @@ const NewMemory = () => {
 					</Box1>
 	<Box2>
 						<MemoryTitle type='text' placeholder='Título del Memory' minLength="3" maxLength="20" size="26" />
+						
 						<Description type='text' placeholder='Añadir al memory' minLength="3" maxLength="20" size="26" />
 						<MediaBox>
 						<Box>
@@ -270,9 +275,12 @@ const NewMemory = () => {
 									</Title>
 						</Box>
 						<Box>
+						<label htmlFor="file-upload" >
 							<GalleryLogo>
 							<img src="src/assets/Gallery.png"/>
+							<input id="file-upload" type="file"/>
 							</GalleryLogo>
+							</label>
 							<Title>
 									Foto/Video
 									</Title>
@@ -301,7 +309,6 @@ const NewMemory = () => {
 		</Box2>
 				</BoxSetBasicData>
 		
-				
 			</Wrapper>
 		</>
 	)
