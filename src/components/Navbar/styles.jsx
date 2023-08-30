@@ -78,6 +78,8 @@ const MenuItem = styled(Link)`
 	color: inherit;
 	text-decoration: none;
 	padding: 18px 0px;
+	font-size: 13px;
+
 	
 `
 
@@ -109,6 +111,11 @@ const Menu = styled.ul`
 		}
 	}
 `
+const Img = styled.img`
+width: 100px;
+height: 22px;
+
+`
 
 export default {
 	Navbar,
@@ -118,4 +125,5 @@ export default {
 	MenuItem,
 	LogLink,
 	RegLink,
+	Img,
 }

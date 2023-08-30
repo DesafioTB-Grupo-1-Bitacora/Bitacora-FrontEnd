@@ -199,19 +199,8 @@ margin-bottom: 8px;
 const NewMemory = () => {
 	const [location, navigate] = useLocation()
 	const [position, setPosition] = useState([])
-
+	
   
-	const LocationFinder = () => {
-		const map = useMapEvents({
-			click(e) {
-			
-				 /*  setPosition([e.latlng.lat, e.latlng.lng]) */
-				  console.log(e.latlng)
-			},
-			
-		})
-		return null
-	}
 
 	const { register, handleSubmit, errors } = useForm()
 
@@ -267,9 +256,14 @@ const NewMemory = () => {
 							</Title>
 							</Box>
 						<Box>
+						<label htmlFor="recorder" >
+						<input type="file" accept="audio/*" capture id="recorder"/>
+
 							<AudioLogo>
 							<img src="src/assets/Audio.png"/>
+
 							</AudioLogo>
+							</label>
 							<Title>
 									Audio
 									</Title>
@@ -278,7 +272,7 @@ const NewMemory = () => {
 						<label htmlFor="file-upload" >
 							<GalleryLogo>
 							<img src="src/assets/Gallery.png"/>
-							<input id="file-upload" type="file"/>
+			<input id="file-upload" type="file"/>
 							</GalleryLogo>
 							</label>
 							<Title>
@@ -294,9 +288,12 @@ const NewMemory = () => {
 									</Title>
 						</Box>
 						<Box>
+						<label htmlFor="file-upload" >
 							<DocumentLogo>
 							<img src="src/assets/Documento.png"/>
+							<input id="file-upload" type="file"/>
 							</DocumentLogo>
+							</label>
 							<Title>
 									Archivo
 									</Title>
