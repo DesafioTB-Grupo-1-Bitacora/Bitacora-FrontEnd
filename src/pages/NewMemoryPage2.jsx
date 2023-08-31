@@ -125,6 +125,7 @@ const Description = styled.input`
   margin-left: 10px;
   @media (min-width: 768px) {
     margin-left: 0px;
+    /*    ESTE MARGIN HACE QUE DESCRIPTION SE SALGA DE LA CAJA a partir de 1251 de ancho de pantalla */
   }
 `;
 const MediaBox = styled.div`
@@ -310,6 +311,29 @@ const NewMemory = () => {
             />
             <MediaBox>
               <Box>
+                <TextLogo>
+                  <img src="src/assets/Texto.png" />
+                </TextLogo>
+
+                <Title>Texto</Title>
+              </Box>
+              <Box>
+                <CamaraLogo>
+                  <img src="src/assets/Camera.png" />
+                </CamaraLogo>
+                <Title>Hacer Foto</Title>
+              </Box>
+              <Box>
+                <label htmlFor="recorder">
+                  <input type="file" accept="audio/*" capture id="recorder" />
+
+                  <AudioLogo>
+                    <img src="src/assets/Audio.png" />
+                  </AudioLogo>
+                </label>
+                <Title>Audio</Title>
+              </Box>
+              <Box>
                 <label htmlFor="file-upload">
                   <GalleryLogo>
                     <img src="src/assets/Gallery.png" />
@@ -317,11 +341,25 @@ const NewMemory = () => {
                       id="file-upload"
                       type="file"
                       multiple
+                      accept="image/*"
                       {...register("multimedia_url")}
                     />
                   </GalleryLogo>
                 </label>
                 <Title>Foto/Video</Title>
+              </Box>
+              <Box>
+                <MusicLogo>
+                  <img src="src/assets/Music.png" />
+                </MusicLogo>
+                <Title>Música</Title>
+              </Box>
+              <Box>
+                <DocumentLogo>
+                  <img src="src/assets/Documento.png" />
+                </DocumentLogo>
+
+                <Title>Archivo</Title>
               </Box>
             </MediaBox>
 
