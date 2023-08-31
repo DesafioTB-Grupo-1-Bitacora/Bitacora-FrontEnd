@@ -46,7 +46,7 @@ const MediasPage = () => {
 	}
 	return (
 		<>
-			<Camera
+	{/* 		<Camera
 				isFullscreen={true}
 				onTakePhoto={(dataUri) => {
 					handleTakePhoto(dataUri)
@@ -63,9 +63,11 @@ const MediasPage = () => {
 				}}
 				downloadOnSavePress={true}
 				downloadFileExtension="webm"
-			/>
+			/> */}
+				<input id="file-upload" type="file"/>
 		</>
 	)
 }
+
 
 export default MediasPage

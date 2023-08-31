@@ -1,8 +1,16 @@
 import { useForm } from "react-hook-form";
 import { useLocation } from "wouter";
 import { useState } from "react";
+import { useLogin } from "../hooks/useLogin";
+import {
+  useMutateMemory,
+  useMemories,
+  useUserMemories,
+  useMemory,
+} from "../hooks/memories";
 import MapComponent from "./MapPage";
 import styled from "styled-components";
+import { useSearch } from "wouter/use-location";
 import {
   MapContainer,
   TileLayer,
@@ -179,13 +187,77 @@ const DocumentLogo = styled.div`
 `;
 
 const NewMemory = () => {
+  const { data } = useLogin();
+  const { createMemory } = useMutateMemory();
+
+  // const {allMemories, isLoading} = useMemories();
+
+  // const {allUserMemories, isLoading} = useUserMemories();
+  // const {memory, isLoading} = useMemory("DOS PALABRAS"); NO ENCUENTRA RECURSO POR ESPACIOS AL ENVIA DOS%PALABRAS
+
+  /* const { memory, isLoading } = useMemory("Test"); */
+  /*   console.log(memory); */
   const [location, navigate] = useLocation();
   const [position, setPosition] = useState([]);
 
+  const search = useSearch();
+  const searchParams = new URLSearchParams(search);
+
   const { register, handleSubmit, errors } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = (form) => {
+    const formData = new FormData();
     console.log(data);
+    for (let field in form) {
+      if (form[field] instanceof FileList) {
+        const fields = Array.from(form[field]);
+
+        fields.forEach((file) => {
+          formData.append("image[]", file, file.name);
+        });
+
+        const title = form.title.split(" ").join("_");
+
+        formData.append(field, data.data + "/" + title);
+      } else if (form[field] instanceof Object) {
+        formData.append(field, JSON.stringify(form[field]));
+      } else if (form[field] instanceof Array) {
+        form[field].forEach((element) => {
+          formData.append(field + "[]", element);
+        });
+      } else {
+        formData.append(field, form[field]);
+      }
+    }
+
+    for (let pair of formData.entries()) {
+      console.log(pair[0] + ", " + pair[1]);
+    }
+
+    formData.append("latitude", searchParams.get("latitude"));
+    formData.append("longitude", searchParams.get("longitude"));
+
+    createMemory(formData);
+
+    // // Primitives
+
+    // formData.append("notebook", data.notebook);
+
+    // // arrays
+
+    // data.notes.forEach(note => {
+    //   formData.append("notes[]", note);
+
+    // })
+
+    // // Files
+
+    // formData.append("file", data.multimedia_url[0], data.multimedia_url[0]);
+
+    //   // Object
+
+    //   formData.append("notebook", JSON.stringify(data.location));
+
     // Acciones adicionales, como navegar a una nueva página con los datos del formulario
     // navigate('/nueva-ruta?' + new URLSearchParams(data).toString());
   };
@@ -205,14 +277,16 @@ const NewMemory = () => {
                 minLength="3"
                 maxLength="20"
                 size="16"
+                {...register("notebook")}
               />
-              <DateOpt type="date" size="10" />
+              <DateOpt type="date" size="10" {...register("date")} />
               <Ubication
                 type="text"
                 placeholder="Ubicación"
                 minLength="3"
                 maxLength="20"
                 size="11"
+                {...register("location")}
               />
             </BoxFirstBtns>
           </Box1>
@@ -223,6 +297,7 @@ const NewMemory = () => {
               minLength="3"
               maxLength="20"
               size="26"
+              {...register("title")}
             />
 
             <Description
@@ -231,58 +306,25 @@ const NewMemory = () => {
               minLength="3"
               maxLength="20"
               size="26"
+              {...register("description")}
             />
             <MediaBox>
-              <Box>
-                <TextLogo>
-                  <img src="src/assets/Texto.png" />
-                </TextLogo>
-
-                <Title>Texto</Title>
-              </Box>
-              <Box>
-                <CamaraLogo>
-                  <img src="src/assets/Camera.png" />
-                </CamaraLogo>
-                <Title>Hacer Foto</Title>
-              </Box>
-              <Box>
-                <label htmlFor="recorder">
-                  <input type="file" accept="audio/*" capture id="recorder" />
-
-                  <AudioLogo>
-                    <img src="src/assets/Audio.png" />
-                  </AudioLogo>
-                </label>
-                <Title>Audio</Title>
-              </Box>
               <Box>
                 <label htmlFor="file-upload">
                   <GalleryLogo>
                     <img src="src/assets/Gallery.png" />
-                    <input id="file-upload" type="file" />
+                    <input
+                      id="file-upload"
+                      type="file"
+                      multiple
+                      {...register("multimedia_url")}
+                    />
                   </GalleryLogo>
                 </label>
                 <Title>Foto/Video</Title>
               </Box>
-              <Box>
-                <MusicLogo>
-                  <img src="src/assets/Music.png" />
-                </MusicLogo>
-                <Title>Música</Title>
-              </Box>
-              <Box>
-                <label htmlFor="file-upload">
-                  <DocumentLogo>
-                    <img src="src/assets/Documento.png" />
-                    <input id="file-upload" type="file" />
-                  </DocumentLogo>
-                </label>
-                <Title>Archivo</Title>
-              </Box>
             </MediaBox>
 
-			
             <button type="submit">Confirmar</button>
           </Box2>
         </BoxSetBasicData>

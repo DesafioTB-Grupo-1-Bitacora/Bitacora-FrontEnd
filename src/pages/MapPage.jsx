@@ -1,18 +1,23 @@
-import { Link, useLocation } from 'wouter'
-import { MapContainer, TileLayer, useMapEvents, Marker, ZoomControl } from 'react-leaflet'
-import {useState} from 'react'
-import styled from 'styled-components'
-import 'leaflet/dist/leaflet.css'
+import { Link, useLocation } from "wouter";
+import {
+  MapContainer,
+  TileLayer,
+  useMapEvents,
+  Marker,
+  ZoomControl,
+} from "react-leaflet";
+import { useState } from "react";
+import styled from "styled-components";
+import "leaflet/dist/leaflet.css";
 
+import { useSearch } from "wouter/use-location";
 
 const Map = styled(MapContainer)`
-	height: 262px;
-
-`
+  height: 262px;
+`;
 const StyledLink = styled(Link)`
-pointer-events: ${({disabled}) => disabled ? 'none' : 'auto'};
-
-`
+  pointer-events: ${({ disabled }) => (disabled ? "none" : "auto")};
+`;
 
 const CreateMemory = styled(Link)`
   position: absolute;
@@ -23,16 +28,14 @@ const CreateMemory = styled(Link)`
   border-radius: 50%;
   background-color: white;
   z-index: 10;
-  background-img: url('assets/addMemory.png');
+  background-img: url("assets/addMemory.png");
   background-size: auto;
-  cursor: pointer; 
-	margin: 5px;
-	box-shadow: 0px 2px 8px 0px rgba(97, 97, 99, 0.50) inset;
-	padding: 5px 5px;
-justify-content: center;
-align-items: center;
-
-  
+  cursor: pointer;
+  margin: 5px;
+  box-shadow: 0px 2px 8px 0px rgba(97, 97, 99, 0.5) inset;
+  padding: 5px 5px;
+  justify-content: center;
+  align-items: center;
 
   &:hover .tooltip {
     display: block;
@@ -42,109 +45,101 @@ align-items: center;
 const Tooltip = styled.div`
   display: none;
   position: absolute;
-  bottom: calc(100% + 5px); 
-  left: 50%; 
+  bottom: calc(100% + 5px);
+  left: 50%;
   transform: translateX(-110%);
-  background-color:var(--gris-oscuro, #616163);
+  background-color: var(--gris-oscuro, #616163);
   padding: 10px;
 
   color: white;
   padding: 10px 10px;
   border-radius: 5px;
   font-size: 14px;
-  white-space: nowrap; 
-`
-;
+  white-space: nowrap;
+`;
 const BoxCreateMemory = styled.div`
-
-position: relative;
-height: 262px;
-
-`
+  position: relative;
+  height: 262px;
+`;
 const BoxNotebookAndMemories = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
   width: 100%;
   padding: 32px 48px;
   height: 80px;
 
-
   @media (min-width: 768px) {
     padding: 32px 315px;
   }
-`
+`;
 
 const Notebooks = styled(Link)`
-text-decoration: none;
-color: inherit;
-
-`
+  text-decoration: none;
+  color: inherit;
+`;
 const Memories = styled(Link)`
-text-decoration: none;
-color: inherit;
-`
-
+  text-decoration: none;
+  color: inherit;
+`;
 
 const center = {
-	lat: 51.505,
-	lng: -0.09,
-}
-
-
+  lat: 51.505,
+  lng: -0.09,
+};
 
 const MapComponent = () => {
-	const [location, navigate] = useLocation()
-	const [position, setPosition] = useState([])
+  const search = useSearch();
+  const searchParams = new URLSearchParams(search);
+  const defaultPosition = [];
 
-  
-	const LocationFinder = () => {
-		const map = useMapEvents({
-			click(e) {
-			
-				  setPosition([e.latlng.lat, e.latlng.lng])
-			},
-		})
-		return null
-	}
-	return (
-		<>
-			<BoxCreateMemory>
+  if (searchParams.get("latitude") && searchParams.get("longitude")) {
+    defaultPosition[0] = searchParams.get("latitude");
+    defaultPosition[1] = searchParams.get("longitude");
+  }
+  const [location, navigate] = useLocation();
+  const [position, setPosition] = useState(defaultPosition);
 
-			<Map color="grey" center={center} zoom={4} scrollWheelZoom={true} zoomControl={false}>
-				<TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-				<ZoomControl position="topright" style={{ zIndex: 1 }}/>
+  const LocationFinder = () => {
+    const map = useMapEvents({
+      click(e) {
+        setPosition([e.latlng.lat, e.latlng.lng]);
+      },
+    });
+    return null;
+  };
+  return (
+    <>
+      <BoxCreateMemory>
+        <Map
+          color="grey"
+          center={center}
+          zoom={4}
+          scrollWheelZoom={true}
+          zoomControl={false}
+        >
+          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+          <ZoomControl position="topright" style={{ zIndex: 1 }} />
 
-				<LocationFinder />
-				{position.length &&  (<Marker position={position}>
-    			</Marker>)}
-			
-			</Map>
-			<CreateMemory to={`/newmemory`}> 
-				
-			<img src="src/assets/addMemory.png"/> 
-				<Tooltip className="tooltip">
-				Haz clic aquí para crear tu primer memory
-       			 </Tooltip>
-	
-		</CreateMemory>
-		</BoxCreateMemory>
+          <LocationFinder />
+          {position.length && <Marker position={position}></Marker>}
+        </Map>
+        <CreateMemory
+          to={`/newmemory?latitude=${position[0]}&longitude=${position[1]}`}
+        >
+          <img src="src/assets/addMemory.png" />
+          <Tooltip className="tooltip">
+            Haz clic aquí para crear tu primer memory
+          </Tooltip>
+        </CreateMemory>
+      </BoxCreateMemory>
 
-		
-		<BoxNotebookAndMemories>
-			<Notebooks to={`/`}>
-				Cuadernos
-			</Notebooks>
-			<Memories to={`/`}>
-			Todos los memories
-			</Memories>
-		</BoxNotebookAndMemories>
+      <BoxNotebookAndMemories>
+        <Notebooks to={`/`}>Cuadernos</Notebooks>
+        <Memories to={`/`}>Todos los memories</Memories>
+      </BoxNotebookAndMemories>
+    </>
+  );
+};
 
-		
-	
-			
-		</>
-	)
-}
-
-export default MapComponent
+export default MapComponent;

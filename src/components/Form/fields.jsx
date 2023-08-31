@@ -3,7 +3,7 @@ import Styled from './styles'
 const input = ({ name, label, errors, inputRef, ...rest }) => {
 	return (
 		<>
-			<Styled.FieldLabel htmlFor={name}>{label}</Styled.FieldLabel>
+		
 			<Styled.FieldInput
 				name={name}
 				id={name}

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 const input = css`
-	border-radius: 3%;
+	border-radius: 10px;
 	border: 1px solid;
 	padding: 10px;
 	width: 100%;
@@ -17,11 +17,16 @@ const Form = styled.form`
 	flex-direction: column;
 	gap: 10px;
 	align-items: start;
-	padding: 30px 10px;
+	padding: 30px 64px;
+
 `
 
 const FormButton = styled.button`
 	border-radius: 3%;
+	border-radius: 10px;
+	border: 1px solid;
+	padding: 10px;
+	width: 100%;
 `
 
 const FormTitle = styled.h3`

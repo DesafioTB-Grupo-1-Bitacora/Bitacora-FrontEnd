@@ -1,48 +1,48 @@
-import { useForm } from 'react-hook-form'
+import { useForm } from "react-hook-form";
 
-import { resolver, getDefaultValues, getFields } from './helpers'
+import { resolver, getDefaultValues, getFields } from "./helpers";
 
-import Styled from './styles'
-import InputFields from './fields'
+import Styled from "./styles";
+import InputFields from "./fields";
 
 const Form = ({ title, onSubmit, buttonLabel, formData = [] }) => {
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-	} = useForm({
-		defaultValues: getDefaultValues(formData),
-		resolver: resolver(formData),
-	})
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: getDefaultValues(formData),
+    resolver: resolver(formData),
+  });
 
-	const fields = getFields(formData)
+  const fields = getFields(formData);
 
-	return (
-		<Styled.Form onSubmit={handleSubmit(onSubmit)} noValidate>
-			<Styled.FormTitle>{title}</Styled.FormTitle>
+  return (
+    <Styled.Form onSubmit={handleSubmit(onSubmit)} noValidate>
+      <Styled.FormTitle>{title}</Styled.FormTitle>
 
-			{fields.map(({ name, type = 'text', ...propsRest }) => {
-				const { ref: inputRef, ...rest } = {
-					type,
-					...register(name),
-					...propsRest,
-				}
+      {fields.map(({ name, type = "text", ...propsRest }) => {
+        const { ref: inputRef, ...rest } = {
+          type,
+          ...register(name),
+          ...propsRest,
+        };
 
-				const Input = InputFields[type] || InputFields.input
+        const Input = InputFields[type] || InputFields.input;
 
-				return (
-					<Input
-						key={name}
-						{...rest}
-						errors={errors[name]}
-						inputRef={inputRef}
-					/>
-				)
-			})}
+        return (
+          <Input
+            key={name}
+            {...rest}
+            errors={errors[name]}
+            inputRef={inputRef}
+          />
+        );
+      })}
 
-			<Styled.FormButton type="submit">{buttonLabel}</Styled.FormButton>
-		</Styled.Form>
-	)
-}
+      <Styled.FormButton type="submit">{buttonLabel}</Styled.FormButton>
+    </Styled.Form>
+  );
+};
 
-export default Form
+export default Form;

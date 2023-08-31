@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Link, useLocation } from 'wouter'
 import MapComponent from './MapPage'
+import SuscriptionPage from './SuscriptionPage'
 
 
 
@@ -168,7 +169,6 @@ const CreateMemory = styled(Link)`
 justify-content: center;
 align-items: center;
 
-  
 
   &:hover .tooltip {
     display: block;
@@ -198,7 +198,7 @@ const LandingPage1 = () => {
 </svg>
 					</Funcionality>
 
-					<Funcionality to={`/landingpage1`}>
+					<Funcionality to={`/landingpage1#miracambia`}>
 		
 <svg xmlns="http://www.w3.org/2000/svg" width="27" height="28" viewBox="0 0 27 28" fill="none">
   <path d="M13.1668 25H4.50016C3.79292 25 3.11464 24.719 2.61454 24.219C2.11445 23.7189 1.8335 23.0406 1.8335 22.3333V6.33333C1.8335 5.62609 2.11445 4.94781 2.61454 4.44772C3.11464 3.94762 3.79292 3.66667 4.50016 3.66667H20.5002C21.2074 3.66667 21.8857 3.94762 22.3858 4.44772C22.8859 4.94781 23.1668 5.62609 23.1668 6.33333V11.6667M17.8335 1V6.33333" stroke="#0C0C0F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -246,7 +246,7 @@ const LandingPage1 = () => {
 
 
 		
-					<ExplanationTitle>Mira, cambia y disfruta de nuevo</ExplanationTitle>
+					<ExplanationTitle id="miracambia" >Mira, cambia y disfruta de nuevo</ExplanationTitle>
 					<ExplanationSubtitle>
 					Lo mejor de Tripmemories es dar rienda suelta a tus emociones y revivirlas en el cuaderno de viaje siempre que quieras 
 					</ExplanationSubtitle>
@@ -266,47 +266,8 @@ const LandingPage1 = () => {
 						</Link>
 					</ComenzarRegistro>
 
-					<SuscriptionBox>
-							<Box>
-							<HeadBox>
-							Gratis
-							</HeadBox>
-							<div>
-							<p>5 memories máximo</p>
-							</div>
-							<div> <p>1 cuaderno</p></div>
-							 <p>500GB almacenamiento</p>
-							<RegButton >OK</RegButton>
-							</Box>
-							
-							<Box>
-							<HeadBox>
-							Pro
-							</HeadBox>
-							<p>5 memories/cuaderno</p> <p>5 cuadernos</p> <p>1 TB almacenamiento</p> <p>1 impresión de cuaderno gratis</p>
-							<RegButton >OK</RegButton>
-
-
-							</Box>
-
-
-							<Box>
-							<HeadBox>
-							Premium
-							</HeadBox>
-							
-							<p>Memories ilimitados</p> <p>cuadernos ilimitados</p> <p>ilimitado almacenamiento</p> <p>1 impresión de cuaderno gratis</p> <p>5% descuento siguientes impresiones de cuadernos</p>
-							<RegButton >OK</RegButton>
-
-							</Box>
-						</SuscriptionBox>
-					<ComenzarRegistro>
-						<TitleRegistro> ¿Aún no te decides? </TitleRegistro>
-						<Link to={'/'}>
-						<RegButton>Lea porqué TripMemories</RegButton>
-						</Link>
-					</ComenzarRegistro>
-								</StyledWrapper>
+					</StyledWrapper>
+					<SuscriptionPage/>
 
 			
 
