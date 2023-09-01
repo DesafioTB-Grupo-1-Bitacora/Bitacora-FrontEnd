@@ -198,7 +198,7 @@ const LandingPage1 = () => {
 </svg>
 					</Funcionality>
 
-					<Funcionality to={`/landingpage1#miracambia`}>
+					<Funcionality to={`/memories`}>
 		
 <svg xmlns="http://www.w3.org/2000/svg" width="27" height="28" viewBox="0 0 27 28" fill="none">
   <path d="M13.1668 25H4.50016C3.79292 25 3.11464 24.719 2.61454 24.219C2.11445 23.7189 1.8335 23.0406 1.8335 22.3333V6.33333C1.8335 5.62609 2.11445 4.94781 2.61454 4.44772C3.11464 3.94762 3.79292 3.66667 4.50016 3.66667H20.5002C21.2074 3.66667 21.8857 3.94762 22.3858 4.44772C22.8859 4.94781 23.1668 5.62609 23.1668 6.33333V11.6667M17.8335 1V6.33333" stroke="#0C0C0F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

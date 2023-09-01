@@ -238,7 +238,8 @@ const NewMemory = () => {
     formData.append("latitude", searchParams.get("latitude"));
     formData.append("longitude", searchParams.get("longitude"));
 
-    createMemory(formData);
+    console.log(formData.values());
+    //createMemory(formData);
 
     // // Primitives
 
