@@ -81,28 +81,22 @@ const Ubication = styled.input`
 `;
 
 const Box2 = styled.div`
+  width: 213px;
+  height: 30px;
+  padding: 0px 11px;
 
-width: 213px
-height: 30px;
-padding: 0px 11px;
+  button {
+    margin-top: 24px;
 
-
-
-button {
-	margin-top: 24px;
-
-	background-color: var(--gris-oscuro, #616163);
-color: white;
-border: none;
-padding: 12px 24px;
-border-radius: 5px;
-font-size: 16px;
-cursor: pointer;
-width: 340px;
-}
-
-
-
+    background-color: #00917f;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 340px;
+  }
 `;
 const MemoryTitle = styled.input`
   font-size: 24px;
@@ -238,6 +232,7 @@ const NewMemory = () => {
     formData.append("latitude", searchParams.get("latitude"));
     formData.append("longitude", searchParams.get("longitude"));
 
+    console.log(formData.values());
     createMemory(formData);
 
     // // Primitives
@@ -312,14 +307,14 @@ const NewMemory = () => {
             <MediaBox>
               <Box>
                 <TextLogo>
-                  <img src="src/assets/Texto.png" />
+                  <img src="/assets/Texto.png" />
                 </TextLogo>
 
                 <Title>Texto</Title>
               </Box>
               <Box>
                 <CamaraLogo>
-                  <img src="src/assets/Camera.png" />
+                  <img src="/assets/Camera.png" />
                 </CamaraLogo>
                 <Title>Hacer Foto</Title>
               </Box>
@@ -328,7 +323,7 @@ const NewMemory = () => {
                   <input type="file" accept="audio/*" capture id="recorder" />
 
                   <AudioLogo>
-                    <img src="src/assets/Audio.png" />
+                    <img src="/assets/Audio.png" />
                   </AudioLogo>
                 </label>
                 <Title>Audio</Title>
@@ -336,7 +331,7 @@ const NewMemory = () => {
               <Box>
                 <label htmlFor="file-upload">
                   <GalleryLogo>
-                    <img src="src/assets/Gallery.png" />
+                    <img src="/assets/Gallery.png" />
                     <input
                       id="file-upload"
                       type="file"
@@ -350,13 +345,13 @@ const NewMemory = () => {
               </Box>
               <Box>
                 <MusicLogo>
-                  <img src="src/assets/Music.png" />
+                  <img src="/assets/Music.png" />
                 </MusicLogo>
                 <Title>Música</Title>
               </Box>
               <Box>
                 <DocumentLogo>
-                  <img src="src/assets/Documento.png" />
+                  <img src="/assets/Documento.png" />
                 </DocumentLogo>
 
                 <Title>Archivo</Title>

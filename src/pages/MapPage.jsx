@@ -28,7 +28,7 @@ const CreateMemory = styled(Link)`
   border-radius: 50%;
   background-color: white;
   z-index: 10;
-  background-img: url("assets/addMemory.png");
+
   background-size: auto;
   cursor: pointer;
   margin: 5px;
@@ -127,7 +127,7 @@ const MapComponent = () => {
         <CreateMemory
           to={`/newmemory?latitude=${position[0]}&longitude=${position[1]}`}
         >
-          <img src="src/assets/addMemory.png" />
+          <img src="/assets/addMemory.png" />
           <Tooltip className="tooltip">
             Haz clic aquí para crear tu primer memory
           </Tooltip>
@@ -136,7 +136,8 @@ const MapComponent = () => {
 
       <BoxNotebookAndMemories>
         <Notebooks to={`/`}>Cuadernos</Notebooks>
-        <Memories to={`/`}>Todos los memories</Memories>
+
+        <Memories to="/memories">Todos los memories</Memories>
       </BoxNotebookAndMemories>
     </>
   );

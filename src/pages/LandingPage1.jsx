@@ -4,20 +4,20 @@ import MapComponent from "./MapPage";
 import SuscriptionPage from "./SuscriptionPage";
 
 const RectangleImage = styled.div`
-
-align-self: stretch;
-background: url(${({ src }) => src});
-background-repeat: no-repeat;
-background-size: auto;
-border: solid black 1px;
-border-radius: 10px;
-background-size: cover;
-height: 387px;
-width: 100%;
-margin-top: 32px;
-@media (min-width: 768px) {
-
+  align-self: stretch;
+  background: url(${({ src }) => src});
+  background-repeat: no-repeat;
+  background-size: auto;
+  border: solid black 1px;
+  border-radius: 10px;
+  background-size: cover;
+  height: 387px;
+  width: 100%;
+  margin-top: 32px;
+  @media (min-width: 768px) {
+  }
 `;
+
 const StyledWrapper = styled.div`
   padding: 32px 24px;
   gap: 32px;
@@ -41,7 +41,7 @@ const IconsAndDEscription = styled.div`
   gap: 36px;
   align-self: stretch;
 `;
-const Funcionality = styled(Link)`
+const Funcionality = styled.a`
   display: flex;
   width: 83.667px;
   flex-direction: column;
@@ -55,7 +55,7 @@ const TextFuncionality = styled.p`
 `;
 const ExplanationTitle = styled.h1`
   color: var(--negro, #0c0c0f);
-  margin-top: 32px;
+  padding-top: 76px;
   /* Título 1 bold */
   font-family: Kumbh Sans;
   font-size: 32px;
@@ -75,10 +75,10 @@ const ExplanationSubtitle = styled.h2`
 `;
 const ComenzarRegistro = styled.div`
   padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
 
-  @media (min-width: 768px) {
-    padding: 32px 180px;
-  }
+  align-items: center;
 `;
 const TitleRegistro = styled.h1`
   color: var(--negro, #0c0c0f);
@@ -94,17 +94,22 @@ const TitleRegistro = styled.h1`
 const SubtitleRegistro = styled.p`
   padding: 24px 0px;
   font-size: 16px;
+  text-align: center;
+  @media (min-width: 768px) {
+    padding: 24px 120px;
+  }
 `;
 
 const RegButton = styled.button`
-  background-color: var(--gris-oscuro, #616163);
+  background-color: #00917f;
   color: white;
   border: none;
   padding: 12px 24px;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  width: 100%;
+
+  width: 50%;
 `;
 
 const SuscriptionBox = styled.div`
@@ -135,10 +140,10 @@ const CreateMemory = styled(Link)`
   border-radius: 50%;
   background-color: white;
   z-index: 10;
-  background-img: url("assets/addMemory.png");
+
   background-size: auto;
   cursor: pointer;
-  margin: 5px;
+  margin-left: 5px;
   box-shadow: 0px 2px 8px 0px rgba(97, 97, 99, 0.5) inset;
   padding: 5px 5px;
   justify-content: center;
@@ -148,6 +153,12 @@ const CreateMemory = styled(Link)`
     display: block;
   }
 `;
+/* 
+----------
+
+---------------------------Estos estilos debería de sacarlos a otro archivo ------------------------------
+
+---------- */
 
 const LandingPage1 = () => {
   return (
@@ -157,7 +168,7 @@ const LandingPage1 = () => {
       <StyledWrapper>
         <FuncionalitiesIcons>
           <IconsAndDEscription>
-            <Funcionality to={`/landingpage1`}>
+            <Funcionality href={`/#marcarlugar`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="33"
@@ -181,6 +192,7 @@ const LandingPage1 = () => {
                 />
               </svg>
               <TextFuncionality>Marca tu memory</TextFuncionality>
+
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="73"
@@ -190,14 +202,14 @@ const LandingPage1 = () => {
               >
                 <path
                   d="M1.5 2H71.5"
-                  stroke="#0C0C0F"
+                  stroke="#00917F"
                   strokeWidth="3"
                   strokeLinecap="round"
                 />
               </svg>
             </Funcionality>
 
-            <Funcionality to={`/landingpage1#miracambia`}>
+            <Funcionality href={`/#entusviajes`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="27"
@@ -223,7 +235,7 @@ const LandingPage1 = () => {
               <TextFuncionality>Organiza los memories</TextFuncionality>
             </Funcionality>
 
-            <Funcionality to={`/landingpage1`}>
+            <Funcionality href={`/#miracambia`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="33"
@@ -252,28 +264,25 @@ const LandingPage1 = () => {
           </IconsAndDEscription>
         </FuncionalitiesIcons>
 
-        <ExplanationTitle>Marcar el lugar exacto en el mapa</ExplanationTitle>
+        <ExplanationTitle id="marcarlugar">
+          Marcar el lugar exacto en el mapa
+        </ExplanationTitle>
         <ExplanationSubtitle>
           Añade tus memories para poder verlos más tarde todos agrupados en un
           cuaderno de viaje totalmente editable
         </ExplanationSubtitle>
 
-        <CreateMemory to={`/newmemory`}>
-          <img src="src/assets/addMemory.png" />
-        </CreateMemory>
+        <RectangleImage src="/assets/images/Rectangle1.png"></RectangleImage>
 
-        <RectangleImage src="src/assets/images/Rectangle1.png"></RectangleImage>
-
-        <ExplanationTitle>En tus viajes, no te dejes nada</ExplanationTitle>
+        <ExplanationTitle id="entusviajes">
+          En tus viajes, no te dejes nada
+        </ExplanationTitle>
         <ExplanationSubtitle>
           No te conformes sólo con fotos, crea recuerdos detallados añadiendo
           audio, música u originales stickers
         </ExplanationSubtitle>
 
-        <CreateMemory to={`/newmemory`}>
-          <img src="src/assets/addMemory.png" />
-        </CreateMemory>
-        <RectangleImage src="src/assets/images/Rectangle2.png"></RectangleImage>
+        <RectangleImage src="/assets/images/Rectangle2.png"></RectangleImage>
 
         <ExplanationTitle id="miracambia">
           Mira, cambia y disfruta de nuevo
@@ -283,10 +292,7 @@ const LandingPage1 = () => {
           revivirlas en el cuaderno de viaje siempre que quieras
         </ExplanationSubtitle>
 
-        <CreateMemory to={`/newmemory`}>
-          <img src="src/assets/addMemory.png" />
-        </CreateMemory>
-        <RectangleImage src="src/assets/images/Rectangle3.png"></RectangleImage>
+        <RectangleImage src="/assets/images/Rectangle3.png"></RectangleImage>
         <ComenzarRegistro>
           <TitleRegistro> ¿Comenzamos? </TitleRegistro>
           <SubtitleRegistro>
