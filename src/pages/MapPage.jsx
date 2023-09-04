@@ -3,9 +3,9 @@ import {
   MapContainer,
   TileLayer,
   useMapEvents,
-  Marker,
   ZoomControl,
 } from "react-leaflet";
+import { Marker } from "react-leaflet/Marker";
 import { useState } from "react";
 import styled from "styled-components";
 import "leaflet/dist/leaflet.css";
@@ -14,6 +14,7 @@ import { useSearch } from "wouter/use-location";
 
 const Map = styled(MapContainer)`
   height: 262px;
+  top: 25px;
 `;
 const StyledLink = styled(Link)`
   pointer-events: ${({ disabled }) => (disabled ? "none" : "auto")};
@@ -21,7 +22,7 @@ const StyledLink = styled(Link)`
 
 const CreateMemory = styled(Link)`
   position: absolute;
-  bottom: 10px;
+  bottom: -46px;
   right: 20px;
   width: 40px;
   height: 40px;
@@ -45,9 +46,9 @@ const CreateMemory = styled(Link)`
 const Tooltip = styled.div`
   display: none;
   position: absolute;
-  bottom: calc(100% + 5px);
+  bottom: calc(100% + 2px);
   left: 50%;
-  transform: translateX(-110%);
+  transform: translateX(-100%);
   background-color: var(--gris-oscuro, #616163);
   padding: 10px;
 
@@ -68,6 +69,7 @@ const BoxNotebookAndMemories = styled.div`
   width: 100%;
   padding: 32px 48px;
   height: 80px;
+  margin-top: 20px;
 
   @media (min-width: 768px) {
     padding: 32px 315px;
@@ -77,10 +79,12 @@ const BoxNotebookAndMemories = styled.div`
 const Notebooks = styled(Link)`
   text-decoration: none;
   color: inherit;
+  font-size: 16px;
 `;
 const Memories = styled(Link)`
   text-decoration: none;
   color: inherit;
+  font-size: 16px;
 `;
 
 const center = {

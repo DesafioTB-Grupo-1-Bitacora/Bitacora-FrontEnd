@@ -8,13 +8,15 @@ const RectangleImage = styled.div`
   background: url(${({ src }) => src});
   background-repeat: no-repeat;
   background-size: auto;
-  border: solid black 1px;
+
   border-radius: 10px;
   background-size: cover;
   height: 387px;
   width: 100%;
   margin-top: 32px;
+  background-position: center;
   @media (min-width: 768px) {
+    background-position: center;
   }
 `;
 

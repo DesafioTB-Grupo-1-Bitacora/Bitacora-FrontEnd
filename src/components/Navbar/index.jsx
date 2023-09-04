@@ -11,7 +11,7 @@ const Navbar = ({ className }) => {
   return (
     <Styled.Navbar className={className}>
       <div>
-        <Styled.Img src="/assets/Logo.png" alt="logo" />
+        <Styled.Img src="/assets/LogoMobile.png" alt="logo" />
       </div>
       <nav>
         <Burger isOpen={open} onToggle={() => setOpen(!open)} />

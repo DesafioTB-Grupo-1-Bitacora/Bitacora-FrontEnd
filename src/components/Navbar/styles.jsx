@@ -26,6 +26,9 @@ const RegLink = styled(Link)`
   padding: 12px 16px;
   margin-right: 39px;
   font-size: 13px;
+  @media (min-width: 768px) {
+    padding: 12px 16px;
+  }
 `;
 
 const BurgerFloor = styled.div`
@@ -86,7 +89,7 @@ const Menu = styled.ul`
     transition: transform 0.3s ease-in-out;
 
     position: fixed;
-    top: 55px;
+    top: 80px;
     right: 0;
     width: 100%;
     padding: 3.5rem 0;
@@ -103,8 +106,14 @@ const Menu = styled.ul`
   }
 `;
 const Img = styled.img`
-  width: 252px;
-  height: 53px;
+  width: 40px;
+  height: 49px;
+
+  @media (min-width: 768px) {
+    content: url("/assets/Logo.png");
+    width: 252px;
+    height: 53px;
+  }
 `;
 
 export default {

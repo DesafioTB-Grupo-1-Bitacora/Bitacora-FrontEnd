@@ -16,5 +16,11 @@ export default createGlobalStyle`
   }
 
   .leaflet-pane { z-index: 1 !important; }
-  .leaflet-bottom { z-index: 0 !important; }
+  .leaflet-bottom { z-index: 10 !important; }
+  .leaflet-top, .leaflet-bottom {
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+    
+}
 `;
