@@ -5,6 +5,12 @@ import {
   useMapEvents,
   ZoomControl,
 } from "react-leaflet";
+import marker from "/assets/Marker.svg";
+import { Icon } from "leaflet";
+const myIcon = new Icon({
+  iconUrl: marker,
+  iconSize: [32, 32],
+});
 import { Marker } from "react-leaflet/Marker";
 import { useState } from "react";
 import styled from "styled-components";
@@ -126,7 +132,9 @@ const MapComponent = () => {
           <ZoomControl position="topright" style={{ zIndex: 1 }} />
 
           <LocationFinder />
-          {position.length && <Marker position={position}></Marker>}
+          {position.length && (
+            <Marker position={position} icon={myIcon}></Marker>
+          )}
         </Map>
         <CreateMemory
           to={`/newmemory?latitude=${position[0]}&longitude=${position[1]}`}
