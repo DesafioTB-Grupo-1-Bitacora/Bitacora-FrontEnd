@@ -2,7 +2,7 @@ export default [
 	{
 		name: 'username',
 		label: 'Nombre de usuario',
-		placeholder: 'Your username...',
+		placeholder: 'Your usernaming...',
 		validation: {
 			validationType: 'string',
 			validations: ['required'],
