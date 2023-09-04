@@ -44,14 +44,14 @@ jobs:
           AWS_DEFAULT_REGION: 'us-west-2'
           AWS_BUCKET_NAME: ${{ env.BUCKET_NAME }}
           DIST_LOCATION_CODE: ./dist
-          
+
       - name: Create CloudFront Invalidation
         run: |
           aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws configure set default.region us-east-1  # Change to your desired AWS region
+          aws configure set default.region us-east-1
 
-          aws cloudfront create-invalidation --distribution-id EF9ZBG5TJNQ8B --paths "/*"
+          aws cloudfront create-invalidation --distribution-id E2JF6US0D91X7O --paths "/*"
 
       - name: Tag version
         uses: tvdias/github-tagger@v0.0.1
