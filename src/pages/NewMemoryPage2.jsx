@@ -23,7 +23,6 @@ const Wrapper = styled.form`
   display: flex;
   flex-direction: column;
   align-items: space-between;
-  padding: auto;
 
   @media (min-width: 768px) {
     padding: 32px 200px;
@@ -33,7 +32,6 @@ const Wrapper = styled.form`
   }
 `;
 const BoxSetBasicData = styled.div`
-  margin: auto;
   display: flex;
   flex-direction: column;
   @media (min-width: 768px) {
@@ -43,6 +41,8 @@ const BoxSetBasicData = styled.div`
 const Box1 = styled.div`
   height: auto;
   width: auto;
+  padding-left: 24px;
+  padding-right: 24px;
 `;
 const BoxSetImage = styled.div`
   border-radius: 10px;
@@ -81,9 +81,11 @@ const Ubication = styled.input`
 `;
 
 const Box2 = styled.div`
-  width: 213px;
+  width: 100%;
   height: 30px;
-  padding: 0px 11px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 11px;
 
   button {
     margin-top: 24px;
@@ -95,7 +97,8 @@ const Box2 = styled.div`
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    width: 340px;
+    width: 80%;
+    margin-left: 10%;
   }
 `;
 const MemoryTitle = styled.input`
@@ -119,12 +122,12 @@ const Description = styled.input`
   margin-left: 10px;
   @media (min-width: 768px) {
     margin-left: 0px;
-    /*    ESTE MARGIN HACE QUE DESCRIPTION SE SALGA DE LA CAJA a partir de 1251 de ancho de pantalla */
   }
 `;
 const MediaBox = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   width: 100%;
 `;
 const Box = styled.div`
@@ -134,6 +137,7 @@ const Box = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0px 5px;
+  text-align: center;
 `;
 const TextLogo = styled.div`
   width: 24px;
@@ -150,7 +154,7 @@ const CamaraLogo = styled.div`
   height: 24px;
   align-items: center;
   justify-content: center;
-  margin-bottom: 8px;
+  margin-bottom: 0px;
 `;
 const AudioLogo = styled.div`
   width: 24px;

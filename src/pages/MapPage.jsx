@@ -127,9 +127,10 @@ const MapComponent = () => {
           zoom={4}
           scrollWheelZoom={true}
           zoomControl={false}
+          attributionControl={false}
         >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-          <ZoomControl position="topright" style={{ zIndex: 1 }} />
+          <ZoomControl position="topright" />
 
           <LocationFinder />
           {position.length && (
