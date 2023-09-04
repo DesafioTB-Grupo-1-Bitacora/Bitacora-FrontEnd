@@ -24,6 +24,7 @@ jobs:
     environment: ${{ github.event.inputs.environment || 'dev' }}
     env:
      BUCKET_NAME: ${{ vars.BUCKET_NAME }}
+     CF_DISTRIBUTION_ID: ${{ vars.CF_DISTRIBUTION_ID }}
 
     steps:
       - uses: actions/checkout@v1
@@ -51,7 +52,7 @@ jobs:
           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws configure set default.region us-east-1
 
-          aws cloudfront create-invalidation --distribution-id E2JF6US0D91X7O --paths "/*"
+          aws cloudfront create-invalidation --distribution-id ${{ env.CF_DISTRIBUTION_ID }} --paths "/*"
 
       - name: Tag version
         uses: tvdias/github-tagger@v0.0.1
