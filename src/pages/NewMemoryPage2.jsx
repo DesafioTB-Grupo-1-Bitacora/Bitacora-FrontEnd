@@ -184,6 +184,10 @@ const DocumentLogo = styled.div`
   justify-content: center;
   margin-bottom: 8px;
 `;
+const BoxTitleAndMemory = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const NewMemory = () => {
   const { data } = useLogin();
@@ -291,23 +295,25 @@ const NewMemory = () => {
             </BoxFirstBtns>
           </Box1>
           <Box2>
-            <MemoryTitle
-              type="text"
-              placeholder="Título del Memory"
-              minLength="3"
-              maxLength="20"
-              size="26"
-              {...register("title")}
-            />
+            <BoxTitleAndMemory>
+              <MemoryTitle
+                type="text"
+                placeholder="Título del Memory"
+                minLength="3"
+                maxLength="20"
+                size="26"
+                {...register("title")}
+              />
 
-            <Description
-              type="text"
-              placeholder="Añadir al memory"
-              minLength="3"
-              maxLength="20"
-              size="26"
-              {...register("description")}
-            />
+              <Description
+                type="text"
+                placeholder="Añadir al memory"
+                minLength="3"
+                maxLength="20"
+                size="26"
+                {...register("description")}
+              />
+            </BoxTitleAndMemory>
             <MediaBox>
               <Box>
                 <TextLogo>
