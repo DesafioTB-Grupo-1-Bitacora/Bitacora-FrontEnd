@@ -1,11 +1,14 @@
+import { MapContainer } from "react-leaflet";
 import { styled } from "styled-components";
 
 const Container = styled.section`
     display: flex;
     flex-direction: column;
-    justify-content: space around;
-    align-items: center;
 `;
+
+const Map = styled(MapContainer)`
+    height: 262px;
+`
 
 const Tooltip = styled.div`
   display: none;
@@ -32,8 +35,10 @@ const CreateMemoryButton = styled.div`
   border-radius: 50%;
   background-color: white;
   z-index: 10;
-  background-img: url("assets/addMemory.png");
+  background-image: url("src/assets/addMemory.png");
   background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
   cursor: pointer;
   margin: 5px;
   box-shadow: 0px 2px 8px 0px rgba(97, 97, 99, 0.5) inset;
@@ -48,6 +53,7 @@ const CreateMemoryButton = styled.div`
 
 export default {
     Container,
+    Map,
     Tooltip,
     CreateMemoryButton
 }

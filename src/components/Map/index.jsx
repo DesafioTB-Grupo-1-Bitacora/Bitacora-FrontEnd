@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Styled from "./styles";
-import { MapContainer, TileLayer, useMapEvents, Marker, ZoomControl } from "react-leaflet";
+import { TileLayer, useMapEvents, Marker, ZoomControl } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 import { Link } from "wouter";
 
 const Map = ({ startPosition = null }) => {
@@ -18,8 +19,8 @@ const Map = ({ startPosition = null }) => {
 
     return (
         <Styled.Container>
-            <MapContainer
-                style={{ height: "262px" }}
+            <Styled.Map
+                color="grey"
                 center={position}
                 zoom={4}
                 scrollWheelZoom={true}
@@ -28,11 +29,12 @@ const Map = ({ startPosition = null }) => {
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                 <ZoomControl position="topright" style={{ zIndex: 1 }} />
                 <LocationFinder />
+                <Marker position={position} />
                 <Styled.CreateMemoryButton>
                     <Link to="/newmemory" />
                     <Styled.Tooltip className="tooltip">Haz click aquí para crear tu memory</Styled.Tooltip>
                 </Styled.CreateMemoryButton>
-            </MapContainer>
+            </Styled.Map>
         </Styled.Container>
     )
 }

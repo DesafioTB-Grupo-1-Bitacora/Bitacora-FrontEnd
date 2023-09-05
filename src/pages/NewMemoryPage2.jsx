@@ -32,6 +32,7 @@ const Wrapper = styled.form`
     display: none;
   }
 `;
+
 const BoxSetBasicData = styled.div`
   margin: auto;
   display: flex;
@@ -214,7 +215,13 @@ const NewMemory = () => {
         const fields = Array.from(form[field]);
 
         fields.forEach((file) => {
-          formData.append("image[]", file, file.name);
+          if(file.type.includes("image/")){
+            formData.append("image", file, file.name);
+          }else if(file.type.includes("video/")){
+            formData.append("video", file, file.name);
+          }else if(file.type.includes("audio/")){
+            formData.append("audio", file, file.name);
+          }
         });
 
         const title = form.title.split(" ").join("_");
@@ -238,8 +245,7 @@ const NewMemory = () => {
     formData.append("latitude", searchParams.get("latitude"));
     formData.append("longitude", searchParams.get("longitude"));
 
-    console.log(formData.values());
-    //createMemory(formData);
+    createMemory(formData);
 
     // // Primitives
 
@@ -342,7 +348,7 @@ const NewMemory = () => {
                       id="file-upload"
                       type="file"
                       multiple
-                      accept="image/*"
+                      accept="image/*, video/*, audio/*"
                       {...register("multimedia_url")}
                     />
                   </GalleryLogo>

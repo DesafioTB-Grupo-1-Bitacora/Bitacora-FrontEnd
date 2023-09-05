@@ -1,20 +1,29 @@
 import { styled } from "styled-components";
 
 const Container = styled.section`
+    min-height: 80vh;
+    width: auto;
+    gap: 5%;
     display: flex;
     flex-direction: column;
-    justify-content: space around;
+    justify-content: space-around;
     align-items: center;
 `;
 
-const Image = styled.img`
-    height: 200px;
-    width: 350px;
+const ImageWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+const Audio = styled.audio`
+
 `
 
 const MemoryInfo = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 5%;
 `
 
 const BoxNotebookAndMemories = styled.div`
@@ -31,15 +40,15 @@ const BoxNotebookAndMemories = styled.div`
 `;
 
 const MediaBox = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
-  width: 100%;
+  justify-content: center;
 `;
 
 const Box = styled.div`
-  position: relative;
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0px 5px;
@@ -59,7 +68,8 @@ const Title = styled.h1`
 
 export default {
     Container,
-    Image,
+    ImageWrapper,
+    Audio,
     MemoryInfo,
     BoxNotebookAndMemories,
     MediaBox,  
