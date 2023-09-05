@@ -18,6 +18,7 @@ import {
   Marker,
   ZoomControl,
 } from "react-leaflet";
+import { plainTextConverter } from "../utils/plainTextConverter";
 
 const Wrapper = styled.form`
   display: flex;
@@ -31,6 +32,7 @@ const Wrapper = styled.form`
     display: none;
   }
 `;
+
 const BoxSetBasicData = styled.div`
   display: flex;
   flex-direction: column;
@@ -210,13 +212,25 @@ const NewMemory = () => {
 
   const onSubmit = (form) => {
     const formData = new FormData();
-    console.log(data);
     for (let field in form) {
+      //Conversión a texto plano en input tipo texto
+      if (typeof form[field] === "string") {
+        form[field] = plainTextConverter(form[field]);
+      }
+
+      console.log(form[field], "-> type:", typeof form[field]);
+
       if (form[field] instanceof FileList) {
         const fields = Array.from(form[field]);
 
         fields.forEach((file) => {
-          formData.append("image[]", file, file.name);
+          if (file.type.includes("image/")) {
+            formData.append("image", file, file.name);
+          } else if (file.type.includes("video/")) {
+            formData.append("video", file, file.name);
+          } else if (file.type.includes("audio/")) {
+            formData.append("audio", file, file.name);
+          }
         });
 
         const title = form.title.split(" ").join("_");
@@ -233,9 +247,9 @@ const NewMemory = () => {
       }
     }
 
-    for (let pair of formData.entries()) {
+    /* for (let pair of formData.entries()) {
       console.log(pair[0] + ", " + pair[1]);
-    }
+    } */
 
     formData.append("latitude", searchParams.get("latitude"));
     formData.append("longitude", searchParams.get("longitude"));
@@ -346,7 +360,7 @@ const NewMemory = () => {
                       id="file-upload"
                       type="file"
                       multiple
-                      accept="image/*"
+                      accept="image/*, video/*, audio/*"
                       {...register("multimedia_url")}
                     />
                   </GalleryLogo>

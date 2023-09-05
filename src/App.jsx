@@ -4,7 +4,7 @@ import Layout from "./pages/Layout";
 import Login from "./pages/LoginPage";
 import Register from "./pages/RegisterPage";
 import Map from "./pages/MapPage";
-import Memory from "./pages/Memory";
+
 import NewMemory from "./pages/NewMemoryPage2";
 import Profile from "./pages/ProfilePage";
 import Travels from "./pages/TravelsPage";

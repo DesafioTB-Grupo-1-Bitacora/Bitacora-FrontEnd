@@ -42,7 +42,6 @@ export const getAllMemories = (client) => async () => {
 
 export const getMemoryByTitle = (client) => async (params) => {
   try {
-    console.log(params);
     const title = params.queryKey[1];
     const { data } = await client.get(`${PATH}/${title}`);
     return data;

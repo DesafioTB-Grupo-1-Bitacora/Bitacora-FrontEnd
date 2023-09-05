@@ -1,10 +1,8 @@
 import { styled } from "styled-components";
 
 const Container = styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
 `;
 
 const BoxNotebookAndMemories = styled.div`
@@ -20,7 +18,15 @@ const BoxNotebookAndMemories = styled.div`
   }
 `;
 
+const PreviewsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+`;
+
 export default {
-    Container,
-    BoxNotebookAndMemories
-}
+  Container,
+  BoxNotebookAndMemories,
+  PreviewsContainer,
+};

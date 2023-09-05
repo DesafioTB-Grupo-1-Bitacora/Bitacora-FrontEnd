@@ -2,9 +2,8 @@ import { useMutation, useQuery, useQueryClient } from "react-query";
 
 import { memories } from "../services";
 
-export function useMutateMemory() {
-  const queryClient = useQueryClient();
 
+export function useMutateMemory() {
   const { mutate: createMemory } = useMutation({
     mutationFn: memories.createMemory,
     onSuccess: (res) => {
@@ -63,10 +62,11 @@ export function useUserMemories() {
 export function useMemory(title) {
   const { data: memory, isLoading } = useQuery({
     queryKey: ["Memory", title],
+    enabled: !!title,
     queryFn: memories.getMemoryByTitle,
     onSuccess: (res) => {
       console.log(res);
-    },
+    }
   });
 
   return { memory, isLoading };
