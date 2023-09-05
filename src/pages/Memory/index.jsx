@@ -1,10 +1,11 @@
 import Styled from "./styles";
-import Map from "../../components/Map";
+
 import { Link } from "wouter";
-import {} from "../../assets/Texto.png";
+
 import { useMemory } from "../../hooks/memories";
 import { useSearch } from "wouter/use-location";
 import Carousel from "../../components/Carousel";
+import MapComponent from "../MapPage";
 
 const Memory = () => {
   const search = useSearch();
@@ -29,12 +30,8 @@ const Memory = () => {
 
   return (
     <>
-      <Map />
+      <MapComponent />
       <Styled.Container>
-        <Styled.BoxNotebookAndMemories>
-          <Link to="/">Cuadernos</Link>
-          <Link to="/memories">Todos los memories</Link>
-        </Styled.BoxNotebookAndMemories>
         <Styled.ImageWrapper>
           {imageAndVideo && <Carousel fileArray={imageAndVideo} />}
           <Styled.MemoryInfo>
