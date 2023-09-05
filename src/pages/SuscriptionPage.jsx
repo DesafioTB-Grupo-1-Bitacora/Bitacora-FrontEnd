@@ -4,10 +4,10 @@ import BotonRegistro from "./ComenzarRegistro";
 const StyledWrapper = styled.div`
   padding: 32px 24px;
   gap: 32px;
-  height: 1800px;
+  height: 2000px;
 
   @media (min-width: 768px) {
-    padding: 32px 315px;
+    padding: 32px 215px;
     height: 100vh;
   }
 `;
@@ -29,7 +29,7 @@ const Box = styled.div`
   flex-direction: column;
   width: 300px;
   height: 555px;
-  margin: 20px 14px;
+  margin: 40px 14px;
   justify-content: space-between;
   align-items: center;
 

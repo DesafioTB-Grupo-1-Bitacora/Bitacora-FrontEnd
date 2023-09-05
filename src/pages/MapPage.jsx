@@ -150,7 +150,7 @@ const MapComponent = () => {
       <BoxNotebookAndMemories>
         <Notebooks to={`/memories`}>Cuadernos</Notebooks>
 
-        <Memories to="/memories">Todos los memories</Memories>
+        <Memories to={`/memories`}>Todos los memories</Memories>
       </BoxNotebookAndMemories>
     </>
   );

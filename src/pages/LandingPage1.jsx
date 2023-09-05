@@ -26,6 +26,7 @@ const StyledWrapper = styled.div`
 
   @media (min-width: 768px) {
     padding: 32px 315px;
+    align-items: center;
   }
 `;
 

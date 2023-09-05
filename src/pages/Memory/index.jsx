@@ -48,37 +48,37 @@ const Memory = () => {
         <Styled.MediaBox>
           <Styled.Box>
             <Styled.Logo>
-              <img src="src/assets/Texto.png" alt="" />
+              <img src="/assets/Texto.png" alt="" />
             </Styled.Logo>
             <Styled.Title>Texto</Styled.Title>
           </Styled.Box>
           <Styled.Box>
             <Styled.Logo>
-              <img src="src/assets/Camera.png" alt="" />
+              <img src="/assets/Camera.png" alt="" />
             </Styled.Logo>
             <Styled.Title>Hacer foto</Styled.Title>
           </Styled.Box>
           <Styled.Box>
             <Styled.Logo>
-              <img src="src/assets/Audio.png" alt="" />
+              <img src="/assets/Audio.png" alt="" />
             </Styled.Logo>
             <Styled.Title>Audio</Styled.Title>
           </Styled.Box>
           <Styled.Box>
             <Styled.Logo>
-              <img src="src/assets/Gallery.png" alt="" />
+              <img src="/assets/Gallery.png" alt="" />
             </Styled.Logo>
             <Styled.Title>Foto/Vídeo</Styled.Title>
           </Styled.Box>
           <Styled.Box>
             <Styled.Logo>
-              <img src="src/assets/Music.png" alt="" />
+              <img src="/assets/Music.png" alt="" />
             </Styled.Logo>
             <Styled.Title>Música</Styled.Title>
           </Styled.Box>
           <Styled.Box>
             <Styled.Logo>
-              <img src="src/assets/Documento.png" alt="" />
+              <img src="/assets/Documento.png" alt="" />
             </Styled.Logo>
             <Styled.Title>Archivo</Styled.Title>
           </Styled.Box>
