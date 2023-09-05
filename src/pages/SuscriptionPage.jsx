@@ -1,12 +1,14 @@
 import styled from "styled-components";
 import { Link, useLocation } from "wouter";
-
+import BotonRegistro from "./ComenzarRegistro";
 const StyledWrapper = styled.div`
   padding: 32px 24px;
   gap: 32px;
+  height: 1800px;
 
   @media (min-width: 768px) {
     padding: 32px 315px;
+    height: 100vh;
   }
 `;
 
@@ -14,26 +16,22 @@ const SuscriptionBox = styled.div`
   height: 600px;
 
   display: grid;
+
+  justify-content: space-evenly;
+
   @media (min-width: 768px) {
     display: flex;
   }
 `;
-const ComenzarRegistro = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
-  @media (min-width: 768px) {
-    padding: 32px 180px;
-  }
-`;
 const Box = styled.div`
   display: flex;
   flex-direction: column;
-  width: 300;
-  height: 555;
+  width: 300px;
+  height: 555px;
   margin: 20px 14px;
   justify-content: space-between;
+  align-items: center;
 
   @media (min-width: 768px) {
   }
@@ -54,27 +52,17 @@ const HeadBox = styled.div`
     margin-bottom: 0px;
   }
 `;
-const TitleRegistro = styled.h1`
-  color: var(--negro, #0c0c0f);
-
-  font-family: Kumbh Sans;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  padding-top: 100px;
-  padding-bottom: 24px;
-`;
 
 const RegButton = styled.button`
   background-color: #00917f;
   color: white;
   border: none;
-  padding: 12px 10px;
+  padding: 20px 10px;
   border-radius: 10px;
   font-size: 14px;
   cursor: pointer;
-  width: auto;
+  width: 70%;
+  align-self: center;
 `;
 
 const SuscriptionPage = () => {
@@ -166,14 +154,8 @@ const SuscriptionPage = () => {
             <RegButton>OK</RegButton>
           </Box>
         </SuscriptionBox>
-
-        <ComenzarRegistro>
-          <TitleRegistro> ¿Aún no te decides? </TitleRegistro>
-          <Link to={"/"}>
-            <RegButton>Lea porqué TripMemories</RegButton>
-          </Link>
-        </ComenzarRegistro>
       </StyledWrapper>
+      <BotonRegistro />
     </>
   );
 };

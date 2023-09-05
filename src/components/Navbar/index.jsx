@@ -1,5 +1,5 @@
 import Styled from "./styles";
-
+import { Link } from "wouter";
 import { useState } from "react";
 
 import Menu from "./Menu";
@@ -11,7 +11,9 @@ const Navbar = ({ className }) => {
   return (
     <Styled.Navbar className={className}>
       <div>
-        <Styled.Img src="/assets/LogoMobile.png" alt="logo" />
+        <Link to={`/`}>
+          <Styled.Img src="/assets/LogoMobile.png" alt="logo" />
+        </Link>
       </div>
       <nav>
         <Burger isOpen={open} onToggle={() => setOpen(!open)} />

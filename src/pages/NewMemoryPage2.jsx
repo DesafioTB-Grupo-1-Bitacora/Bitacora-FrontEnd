@@ -279,7 +279,7 @@ const NewMemory = () => {
                 placeholder="Titulo del cuaderno"
                 type="text"
                 minLength="3"
-                maxLength="20"
+                maxLength="30"
                 size="16"
                 {...register("notebook")}
               />
@@ -288,7 +288,7 @@ const NewMemory = () => {
                 type="text"
                 placeholder="Ubicación"
                 minLength="3"
-                maxLength="20"
+                maxLength="25"
                 size="11"
                 {...register("location")}
               />
@@ -300,7 +300,7 @@ const NewMemory = () => {
                 type="text"
                 placeholder="Título del Memory"
                 minLength="3"
-                maxLength="20"
+                maxLength="30"
                 size="26"
                 {...register("title")}
               />
@@ -309,7 +309,7 @@ const NewMemory = () => {
                 type="text"
                 placeholder="Añadir al memory"
                 minLength="3"
-                maxLength="20"
+                maxLength="150"
                 size="26"
                 {...register("description")}
               />

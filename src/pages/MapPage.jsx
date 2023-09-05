@@ -148,7 +148,7 @@ const MapComponent = () => {
       </BoxCreateMemory>
 
       <BoxNotebookAndMemories>
-        <Notebooks to={`/`}>Cuadernos</Notebooks>
+        <Notebooks to={`/memories`}>Cuadernos</Notebooks>
 
         <Memories to="/memories">Todos los memories</Memories>
       </BoxNotebookAndMemories>
