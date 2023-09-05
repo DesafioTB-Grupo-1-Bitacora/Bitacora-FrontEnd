@@ -18,6 +18,7 @@ import {
   Marker,
   ZoomControl,
 } from "react-leaflet";
+import { plainTextConverter } from "../utils/plainTextConverter";
 
 const Wrapper = styled.form`
   display: flex;
@@ -209,8 +210,15 @@ const NewMemory = () => {
 
   const onSubmit = (form) => {
     const formData = new FormData();
-    console.log(data);
     for (let field in form) {
+      
+      //Conversión a texto plano en input tipo texto
+      if(typeof form[field] === "string"){
+        form[field] = plainTextConverter(form[field]);
+      }
+
+      console.log(form[field], "-> type:", typeof form[field])
+
       if (form[field] instanceof FileList) {
         const fields = Array.from(form[field]);
 
@@ -238,14 +246,14 @@ const NewMemory = () => {
       }
     }
 
-    for (let pair of formData.entries()) {
+    /* for (let pair of formData.entries()) {
       console.log(pair[0] + ", " + pair[1]);
-    }
+    } */
 
     formData.append("latitude", searchParams.get("latitude"));
     formData.append("longitude", searchParams.get("longitude"));
 
-    createMemory(formData);
+    //createMemory(formData);
 
     // // Primitives
 

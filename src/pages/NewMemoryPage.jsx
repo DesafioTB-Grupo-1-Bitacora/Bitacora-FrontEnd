@@ -281,8 +281,6 @@ const NewMemory = () => {
                 <Title>Archivo</Title>
               </Box>
             </MediaBox>
-
-			
             <button type="submit">Confirmar</button>
           </Box2>
         </BoxSetBasicData>
