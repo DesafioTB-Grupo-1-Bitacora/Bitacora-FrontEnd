@@ -13,7 +13,7 @@ const Menu = ({ isOpen, onClose }) => {
     <Styled.Menu open={isOpen}>
       <MenuItem onClick={onClose} label="Perfil" to="/profile" />
       <MenuItem onClick={onClose} label="Añadir Memory" to="/newmemory" />
-      <MenuItem onClick={onClose} label="Mis cuadernos" to="/" />
+      <MenuItem onClick={onClose} label="Mis cuadernos" to="/memories" />
       <MenuItem onClick={onClose} label="Recordatorios" to="/" />
       <MenuItem onClick={onClose} label="Mi suscripción" to="/suscription" />
     </Styled.Menu>

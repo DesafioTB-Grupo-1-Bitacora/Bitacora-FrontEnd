@@ -23,8 +23,8 @@ function App() {
     <Layout>
       <Switch>
         <Route path="/" component={LandingPage1} />
-        <Route path="/landingpage1" component={LandingPage1} />
-        <Route path="/profile" component={Profile} />
+
+        <Route path="/profile" component={LandingPage1} />
         <Route path="/newmemory" component={NewMemory} />
         <Route path="/memory" component={Memory} />
         <Route path="/memories" component={Collection} />
