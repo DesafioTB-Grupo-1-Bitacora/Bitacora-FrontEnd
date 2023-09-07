@@ -2,11 +2,10 @@ const PATH = '/auth'
 
 export const login = (client) => async (params) => {
 	try {
-		const response = await client.post(`${PATH}/signin`, params)
-		console.log(44, response)
-		const allCookies = document.cookie;
-		console.log(2, allCookies)
-		return response.data
+		const {data} = await client.post(`${PATH}/signin`, params)
+		localStorage.setItem('access-token', data.token)
+		console.log('access-token', localStorage.getItem('access-token'))
+		return data
 	} catch (error) {
 		console.log('Login error:', error.message)
 		return { success: false }
@@ -34,8 +33,13 @@ export const logout = (client) => async () => {
 }
 
 export const getUser = (client) => async () => {
+	const config = {
+		headers: { Authorization: `Bearer ${localStorage.getItem('access-token')}` }
+	};
+
+	console.log(22, config);
 	try {
-		const { data } = await client.get(`${PATH}/user`)
+		const { data } = await client.get(`${PATH}/user`, config)
 		return data
 	} catch (error) {
 		console.log('GetUser error:', error.message)
