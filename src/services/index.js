@@ -10,7 +10,7 @@ import {
 } from "./memories";
 
 const client = axios.create({
-  baseURL: "https://x1hy0uvvv7.execute-api.us-west-2.amazonaws.com/dev/bitacora-service",
+  baseURL: import.meta.env.VITE_API_URL,
   withCredentials: true,
 });
 
