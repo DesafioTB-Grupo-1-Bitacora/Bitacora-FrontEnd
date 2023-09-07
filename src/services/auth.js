@@ -1,7 +1,23 @@
 const PATH = '/auth'
 
+export const addAccessToken = (client) => {
+	client.interceptors.request.use(
+		config => {
+		  const token = localStorageService.getAccessToken()
+		  if (token) {
+			config.headers['Authorization'] = 'Bearer ' + localStorage.getItem('access-token')
+		  }
+		  return config
+		},
+		error => {
+		  Promise.reject(error)
+		}
+	  )
+}
+
 export const login = (client) => async (params) => {
 	try {
+		addAccessToken(client);
 		const {data} = await client.post(`${PATH}/signin`, params)
 		localStorage.setItem('access-token', data.token)
 		console.log('access-token', localStorage.getItem('access-token'))
@@ -37,7 +53,6 @@ export const getUser = (client) => async () => {
 		headers: { Authorization: `Bearer ${localStorage.getItem('access-token')}` }
 	};
 
-	console.log(22, config);
 	try {
 		const { data } = await client.get(`${PATH}/user`, config)
 		return data
