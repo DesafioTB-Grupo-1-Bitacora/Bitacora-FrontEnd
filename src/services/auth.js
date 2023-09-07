@@ -2,8 +2,9 @@ const PATH = '/auth'
 
 export const login = (client) => async (params) => {
 	try {
-		const { data } = await client.post(`${PATH}/signin`, params)
-		return data
+		const response = await client.post(`${PATH}/signin`, params)
+		console.log(44, response)
+		return response.data
 	} catch (error) {
 		console.log('Login error:', error.message)
 		return { success: false }
