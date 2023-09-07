@@ -1,3 +1,5 @@
+import { getConfig } from "./memories"
+
 const PATH = '/auth'
 
 export const addAccessToken = (client) => {
@@ -39,7 +41,7 @@ export const register = (client) => async (params) => {
 
 export const logout = (client) => async () => {
 	try {
-		const { data } = await client.post(`${PATH}/signout`)
+		const { data } = await client.post(`${PATH}/signout`, {}, getConfig())
 		return data
 	} catch (error) {
 		console.log('Logout error:', error.message)

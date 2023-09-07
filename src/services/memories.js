@@ -1,7 +1,7 @@
 const PATH = "/memories";
 
 
-const getConfig = () => ({
+export const getConfig = () => ({
   headers: { Authorization: `Bearer ${localStorage.getItem('access-token')}` }
 });
 
