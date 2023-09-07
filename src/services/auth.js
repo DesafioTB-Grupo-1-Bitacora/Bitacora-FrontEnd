@@ -19,7 +19,7 @@ export const login = (client) => async (params) => {
 		const {data} = await client.post(`${PATH}/signin`, params)
 		localStorage.setItem('access-token', data.token)
 		console.log('access-token', localStorage.getItem('access-token'))
-		addAccessToken()
+		addAccessToken(client)
 		return data
 	} catch (error) {
 		console.log('Login error:', error.message)
