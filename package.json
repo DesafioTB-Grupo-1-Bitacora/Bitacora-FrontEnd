@@ -3,9 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --mode development",
+    "dev": "vite --mode",
     "build-dev": "vite build --mode development",
-    "build-prd": "vite build --mode production",
+    "build-prod": "vite build --mode production",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
