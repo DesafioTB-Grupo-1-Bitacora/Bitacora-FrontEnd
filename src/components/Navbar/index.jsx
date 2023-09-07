@@ -32,7 +32,7 @@ const Navbar = ({ className }) => {
           :
           <>
             <Styled.LogLink to={`/login`}> Iniciar sesión</Styled.LogLink>
-            <Styled.RegLink to={`/register`}> Registrarse</Styled.RegLink>)
+            <Styled.RegLink to={`/register`}> Registrarse</Styled.RegLink>
           </> }
       </div>
     </Styled.Navbar>
