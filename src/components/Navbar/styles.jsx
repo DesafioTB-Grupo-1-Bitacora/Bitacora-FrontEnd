@@ -18,10 +18,34 @@ const LogLink = styled(Link)`
   @media (min-width: 768px) {
   }
 `;
+
+const User = styled.p`
+  text-decoration: none;
+  color: inherit;
+  margin-right: 16px;
+  padding: 2px 2px;
+  font-size: 13px;
+  @media (min-width: 768px) {
+  }
+`;
+
 const RegLink = styled(Link)`
   text-decoration: none;
   color: black;
   background-color: var(--amarillo-primario, #f90);
+  border-radius: 20px;
+  padding: 12px 16px;
+  margin-right: 39px;
+  font-size: 13px;
+  @media (min-width: 768px) {
+    padding: 12px 16px;
+  }
+`;
+
+const Logout = styled.p`
+  text-decoration: none;
+  color: black;
+  background-color: red;
   border-radius: 20px;
   padding: 12px 16px;
   margin-right: 39px;
@@ -123,6 +147,8 @@ export default {
   Menu,
   MenuItem,
   LogLink,
+  User,
   RegLink,
+  Logout,
   Img,
 };

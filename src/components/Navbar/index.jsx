@@ -1,12 +1,15 @@
 import Styled from "./styles";
 import { Link } from "wouter";
 import { useState } from "react";
-
+import { useAuth, useLogin } from "../../hooks"
 import Menu from "./Menu";
 import Burger from "./Burger";
 
 const Navbar = ({ className }) => {
   const [open, setOpen] = useState(false);
+
+  const { data: logged } = useLogin();
+  const { logout } = useAuth();
 
   return (
     <Styled.Navbar className={className}>
@@ -20,8 +23,16 @@ const Navbar = ({ className }) => {
         <Menu isOpen={open} onClose={() => setOpen(false)} />
       </nav>
       <div>
-        <Styled.LogLink to={`/login`}> Iniciar sesión</Styled.LogLink>
-        <Styled.RegLink to={`/register`}> Registrarse</Styled.RegLink>
+        { logged?.success ?
+          <>
+            <Styled.LogLink to={`/login`}> Iniciar sesión</Styled.LogLink>
+            <Styled.RegLink to={`/register`}> Registrarse</Styled.RegLink>)
+          </>
+          :
+          <>
+            <Styled.User>{logged?.data}</Styled.User>
+            <Styled.Logout onClick={logout}>Cerrar sesión</Styled.Logout>
+          </> }
       </div>
     </Styled.Navbar>
   );
