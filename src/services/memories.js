@@ -1,8 +1,13 @@
 const PATH = "/memories";
 
+
+const getConfig = () => ({
+  headers: { Authorization: `Bearer ${localStorage.getItem('access-token')}` }
+});
+
 export const createMemory = (client) => async (params) => {
   try {
-    const { data } = await client.post(PATH, params);
+    const { data } = await client.post(PATH, params, getConfig());
     return data;
   } catch (error) {
     console.log("Create Memory error:", error.message);
@@ -12,7 +17,7 @@ export const createMemory = (client) => async (params) => {
 
 export const deleteMemory = (client) => async (params) => {
   try {
-    const { data } = await client.delete(PATH, params);
+    const { data } = await client.delete(PATH, params, getConfig());
     return data;
   } catch (error) {
     console.log("Delete Memory error:", error.message);
@@ -22,7 +27,7 @@ export const deleteMemory = (client) => async (params) => {
 
 export const updateMemory = (client) => async (params) => {
   try {
-    const { data } = await client.put(PATH, params);
+    const { data } = await client.put(PATH, params, getConfig());
     return data;
   } catch (error) {
     console.log("Update Memory error:", error.message);
@@ -32,7 +37,7 @@ export const updateMemory = (client) => async (params) => {
 
 export const getAllMemories = (client) => async () => {
   try {
-    const { data } = await client.get(PATH);
+    const { data } = await client.get(PATH, getConfig());
     return data;
   } catch (error) {
     console.log("Get All Memories error:", error.message);
@@ -43,7 +48,7 @@ export const getAllMemories = (client) => async () => {
 export const getMemoryByTitle = (client) => async (params) => {
   try {
     const title = params.queryKey[1];
-    const { data } = await client.get(`${PATH}/${title}`);
+    const { data } = await client.get(`${PATH}/${title}`, getConfig());
     return data;
   } catch (error) {
     console.log("Get Memory By Title error:", error.message);
