@@ -10,8 +10,6 @@ const Navbar = ({ className }) => {
 
   const { data: logged } = useLogin();
 
-  console.log(logged)
-
   const { logout } = useAuth();
 
   return (
@@ -28,13 +26,13 @@ const Navbar = ({ className }) => {
       <div>
         { logged?.success ?
           <>
-            <Styled.LogLink to={`/login`}> Iniciar sesión</Styled.LogLink>
-            <Styled.RegLink to={`/register`}> Registrarse</Styled.RegLink>)
+            <Styled.User>{logged.data}</Styled.User>
+            <Styled.Logout onClick={logout}>Cerrar sesión</Styled.Logout>
           </>
           :
           <>
-            <Styled.User>{logged.data}</Styled.User>
-            <Styled.Logout onClick={logout}>Cerrar sesión</Styled.Logout>
+            <Styled.LogLink to={`/login`}> Iniciar sesión</Styled.LogLink>
+            <Styled.RegLink to={`/register`}> Registrarse</Styled.RegLink>)
           </> }
       </div>
     </Styled.Navbar>
