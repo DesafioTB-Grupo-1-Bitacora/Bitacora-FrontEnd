@@ -9,6 +9,9 @@ const Navbar = ({ className }) => {
   const [open, setOpen] = useState(false);
 
   const { data: logged } = useLogin();
+
+  console.log(logged)
+
   const { logout } = useAuth();
 
   return (
