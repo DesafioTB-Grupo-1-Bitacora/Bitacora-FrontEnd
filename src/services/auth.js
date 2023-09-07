@@ -4,7 +4,8 @@ export const login = (client) => async (params) => {
 	try {
 		const response = await client.post(`${PATH}/signin`, params)
 		console.log(44, response)
-		console.log(2, Cookies.get('access_token'))
+		const allCookies = document.cookie;
+		console.log(2, allCookies)
 		return response.data
 	} catch (error) {
 		console.log('Login error:', error.message)
