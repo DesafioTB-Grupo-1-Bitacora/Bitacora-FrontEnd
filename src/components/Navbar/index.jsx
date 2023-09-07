@@ -30,7 +30,7 @@ const Navbar = ({ className }) => {
           </>
           :
           <>
-            <Styled.User>{logged?.data}</Styled.User>
+            <Styled.User>{logged.data}</Styled.User>
             <Styled.Logout onClick={logout}>Cerrar sesión</Styled.Logout>
           </> }
       </div>
